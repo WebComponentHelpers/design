@@ -1,0 +1,26 @@
+{
+  "name": "design",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WebComponentHelpers/design.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WebComponentHelpers/design/issues"
+  },
+  "homepage": "https://github.com/WebComponentHelpers/design#readme",
+  "dependencies": {
+    "brick-element": "^0.1.2",
+    "normalize.css": "^8.0.1"
+  },
+  "devDependencies": {
+    "http-server": "^0.11.1"
+  }
+}
