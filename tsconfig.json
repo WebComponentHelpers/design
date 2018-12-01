@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+        "module": "es6",
+        "moduleResolution":"Node",
+        "target": "es2018",
+        "noImplicitAny": true,
+        "allowJs": true,
+	    "outDir": "build/",
+        "sourceMap": false
+    },
+
+    "include": [
+        "src/**/*.ts"
+    ]
+}
+
