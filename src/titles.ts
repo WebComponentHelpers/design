@@ -17,7 +17,8 @@ let mxn = html`
             line-height : 1.125;
             font-size : ${txt_sizes.size_3}rem;
             word-break: break-word;
-            margin : 0rem;
+            margin-top : 1rem;
+            margin-bottom : 0rem;
 
         }
         p ${mixins.block}
@@ -59,7 +60,8 @@ let submxn = html`
             line-height : 1.25;
             font-size : ${txt_sizes.size_3 * txt_sizes.subtitle_factor}rem;
             word-break: break-word;
-            margin : 0rem;
+            margin-top : 1rem;
+            margin-bottom : 0rem;
         }
     
         :host([small]) > p {
