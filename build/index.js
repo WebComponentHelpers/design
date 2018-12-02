@@ -1,51 +1,130 @@
-!function(e){var t={};function r(o){if(t[o])return t[o].exports;var n=t[o]={i:o,l:!1,exports:{}};return e[o].call(n.exports,n,n.exports,r),n.l=!0,n.exports}r.m=e,r.c=t,r.d=function(e,t,o){r.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:o})},r.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},r.t=function(e,t){if(1&t&&(e=r(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var o=Object.create(null);if(r.r(o),Object.defineProperty(o,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var n in e)r.d(o,n,function(t){return e[t]}.bind(null,n));return o},r.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return r.d(t,"a",t),t},r.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},r.p="",r(r.s=0)}([function(e,t,r){"use strict";function o(e){throw console.log("LitRead does not accept the following ${ } as input in string literal:"),console.log(e),Error("Invalid input.")}function n(e,...t){let r;if(r={template:"",props:{},imports:[],IDs:[]},e.length<=t.length)throw Error("Improper parameter size.");if(1===e.length)return r.template=`${e[0]}`,r;let n="";return e.forEach((e,i)=>{if(n+=e,i===t.length)return;let s=t[i];if("string"==typeof s){let e=s;if(e.trim(),"#"===e[0]&&"-"===e[1])n+=` id="${e.substring(2)}" `,r.IDs.push(e.substring(2));else if("|*"===e.slice(0,2)&&"*|"===e.slice(-2)){let t=e.replace(/\s/g,"").slice(2,-2).split("|");for(let e of t)e.includes("-b")?r.props[e.replace(/\-b/g,"")]="bool":r.props[e]="string"}else n+=s}else if("object"==typeof s)if(Array.isArray(s))for(let e of s)"string"==typeof e?n+=" "+e:"object"==typeof e&&"tagName"in e&&"TEMPLATE"===e.tagName?r.imports.push(e):o(e);else"tagName"in s&&"TEMPLATE"===s.tagName?r.imports.push(s):o(s);else o(s)}),r.template=n,r}r.r(t);customElements.define;let i=function(e,...t){let r=n(e,...t),o=document.createElement("template");return o.innerHTML=r.template,r.imports.push(o),e=>(class extends e{static get observedAttributes(){return Object.keys(r.props)}constructor(){super(),this._props=r.props;let e,t=this.attachShadow({mode:"open"});for(let e of r.imports)t.appendChild(e.content.cloneNode(!0));e={};for(let o of r.IDs)e[o]=t.getElementById(o);this.ids=e,this.shadowRoot.qs=this.shadowRoot.querySelector,this.swr=this.shadowRoot,this.setProps()}setProps(){for(let e in this._props)Object.defineProperty(this,e,{set:t=>{this.setAttribute(e,t)},get:()=>this.getAttribute(e)})}attributeChangedCallback(e,t,r){(null===r||t!==r)&&this._props.hasOwnProperty(e)&&void 0!==this["update_"+e]&&this["update_"+e](r)}})}`
-${function(e,...t){let r=n(e,...t),o=document.createElement("template");return o.innerHTML=r.template,Object.defineProperty(o,"_props",r.props),Object.defineProperty(o,"_IDs",r.IDs),o}` 
+!function(t){var e={};function o(r){if(e[r])return e[r].exports;var n=e[r]={i:r,l:!1,exports:{}};return t[r].call(n.exports,n,n.exports,o),n.l=!0,n.exports}o.m=t,o.c=e,o.d=function(t,e,r){o.o(t,e)||Object.defineProperty(t,e,{enumerable:!0,get:r})},o.r=function(t){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(t,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(t,"__esModule",{value:!0})},o.t=function(t,e){if(1&e&&(t=o(t)),8&e)return t;if(4&e&&"object"==typeof t&&t&&t.__esModule)return t;var r=Object.create(null);if(o.r(r),Object.defineProperty(r,"default",{enumerable:!0,value:t}),2&e&&"string"!=typeof t)for(var n in t)o.d(r,n,function(e){return t[e]}.bind(null,n));return r},o.n=function(t){var e=t&&t.__esModule?function(){return t.default}:function(){return t};return o.d(e,"a",e),e},o.o=function(t,e){return Object.prototype.hasOwnProperty.call(t,e)},o.p="",o(o.s=0)}([function(t,e,o){"use strict";function r(t){throw console.log("LitRead does not accept the following ${ } as input in string literal:"),console.log(t),Error("Invalid input.")}function n(t,...e){let o;if(o={template:"",props:{},imports:[],IDs:[]},t.length<=e.length)throw Error("Improper parameter size.");if(1===t.length)return o.template=`${t[0]}`,o;let n="";return t.forEach((t,s)=>{if(n+=t,s===e.length)return;let i=e[s];if("string"==typeof i){let t=i;if(t.trim(),"#"===t[0]&&"-"===t[1])n+=` id="${t.substring(2)}" `,o.IDs.push(t.substring(2));else if("|*"===t.slice(0,2)&&"*|"===t.slice(-2)){let e=t.replace(/\s/g,"").slice(2,-2).split("|");for(let t of e)t.includes("-b")?o.props[t.replace(/\-b/g,"")]="bool":o.props[t]="string"}else n+=i}else if("object"==typeof i)if(Array.isArray(i))for(let t of i)"string"==typeof t?n+=" "+t:"object"==typeof t&&"tagName"in t&&"TEMPLATE"===t.tagName?o.imports.push(t):r(t);else"tagName"in i&&"TEMPLATE"===i.tagName?o.imports.push(i):r(i);else"number"==typeof i?n+=i.toString(10):r(i)}),o.template=n,o}function s(t,...e){let o=n(t,...e),r=document.createElement("template");return r.innerHTML=o.template,Object.defineProperty(r,"_props",o.props),Object.defineProperty(r,"_IDs",o.IDs),r}function i(t,...e){let o=n(t,...e),r=document.createElement("template");return r.innerHTML=o.template,o.imports.push(r),t=>(class extends t{static get observedAttributes(){return Object.keys(o.props)}constructor(){super(),this._props=o.props;let t,e=this.attachShadow({mode:"open"});for(let t of o.imports)e.appendChild(t.content.cloneNode(!0));t={};for(let r of o.IDs)t[r]=e.getElementById(r);this.ids=t,this.shadowRoot.qs=this.shadowRoot.querySelector,this.swr=this.shadowRoot,this.setProps()}setProps(){for(let t in this._props)Object.defineProperty(this,t,{set:e=>{this.setAttribute(t,e)},get:()=>this.getAttribute(t)})}attributeChangedCallback(t,e,o){(!(null!==o)||e!==o)&&this._props.hasOwnProperty(t)&&void 0!==this["update_"+t]&&this["update_"+t](o)}})}o.r(e);let l=customElements.define.bind(customElements),a=400,c=600,p="hsl(0, 0%, 4%)",u="hsl(0, 0%, 21%)",d="hsl(0, 0%, 41%)",f=2.5,m=2,b=1.5,h=.75,g=i`
+${[s`
+    <style>
+    :host{
+        contain: content; 
+        display: inline-block;
+    }
+    </style>
+`,s` 
 <style>
-div {
-    background-color: ${"#00d1b2"};
-    border: 0.1rem solid transparent;
-    border-radius: .4rem;
-    color: #fff;
-    cursor: pointer;
-    display: inline-block;
-    font-size: 1.1rem;
-    font-weight: 700;
-    height: 3.8rem;
-    letter-spacing: .1rem;
-    line-height: 3.8rem;
-    padding: 0 3.0rem;
-    text-align: center;
-    text-decoration: none;
-    /*text-transform: uppercase;*/
-    white-space: nowrap;
-    -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-    -khtml-user-select: none; /* Konqueror HTML */
-    -moz-user-select: none; /* Firefox */
-    -ms-user-select: none; /* Internet Explorer/Edge */
-    user-select: none; /* Non-prefixed version, currentl*/
+  
+button {
+    
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: .1rem;
+
+  height: 3.8rem;
+  padding: 0 2.0rem;
+
+  background-color: ${"#00d1b2"};
+  border: 1px solid transparent;
+  border-radius: .4rem;
+  color: #fff;
+  cursor: pointer;
+
+  -moz-appearance: none;
+  -webkit-appearance: none;
 }
 
-div:hover {
+:host(:hover) > button {
   background-color: ${"#00c4a7"};
   border-color: transparent;
   color: #fff;
   outline: 0;
 }
 
-div:active {
+:host(:active) > button {
   background-color: ${"#00b89c"};
   border-color: transparent;
   color: #fff;
   outline: 0;
 }
-div[disabled]{
-  background-color: ${"lightgrey"};
+:host([disabled]) > button {
+  background-color: ${"#e5e5e5"};
+  border-color: ${"#d6d6d6"};
+  color: ${"#c0c0c0"};
+  cursor : not-allowed;
 }
+button:focus {outline:none;}  
+::-moz-focus-inner {border:0;}
 
-
-</style>`}
-<div ${"#-btn"}> <slot>Click Me</slot></div>
+</style>`]}
+<button ${"#-btn"}> <slot>Click Me</slot></button>
 
 ${"|*disabled*|"}
-    `;customElements.define("btn-x",class extends(i(HTMLElement)){constructor(){super(),this.addEventListener("click",this._onclick)}_onclick(){"function"==typeof this.onclick&&""!==this.disabled&&this.onclick()}update_disabled(e){""===e?this.ids.btn.setAttribute("disabled",""):this.ids.btn.removeAttribute("disabled")}})}]);
+`;customElements.define("btn-x",class extends(g(HTMLElement)){constructor(){super(),this.ids.btn.onclick=this.onclick}update_disabled(t){""===t?this.ids.btn.setAttribute("disabled",""):this.ids.btn.removeAttribute("disabled")}});let y=i`
+    <style>
+        :host {
+            contain: content; 
+            display: block;
+        }
+        :host([bottom-margin]) > p {
+            margin-bottom: 1rem;
+        }
+
+        p {
+            font-weight : ${c};
+            color: ${u};
+            line-height : 1.125;
+            font-size : ${m}rem;
+            word-break: break-word;
+            margin-bottom: -1rem;
+
+        }
+        p ${"host(:not(:last-child)){margin-bottom: 1.5rem;}"}
+
+        :host([small]) > p {
+            font-size : ${b}rem;
+        }
+        :host([medium]) > p {
+            font-size : ${m}rem;
+        }
+        :host([large]) > p {
+            font-size : ${f}rem;
+        }
+        ::slotted(strong){
+            font-weight : inherit;
+            color: ${p};
+            font-size: ${f}rem;
+        }
+    </style>
+    <p><slot></slot></p>
+`;customElements.define("title-x",class extends(y(HTMLElement)){});let $=i`
+    <style>
+        :host {
+            contain: content; 
+            display: block;
+        }
+        :host([bottom-margin]) > p {
+            margin-bottom: 1.5rem;
+        }
+        p {
+            font-weight : ${a};
+            color: ${d};
+            line-height : 1.25;
+            font-size : ${m*h}rem;
+            word-break: break-word;
+            margin-bottom : 1rem;
+        }
+    
+        :host([small]) > p {
+            font-size : ${b*h}rem;
+        }
+        :host([medium]) > p {
+            font-size : ${m*h}rem;
+        }
+        :host([large]) > p {
+            font-size : ${f*h}rem;
+        }
+        ::slotted(strong){
+            font-weight : ${c};
+            color: ${d};
+            font-size: ${f*h}rem;
+        }
+    </style>
+    <p><slot></slot></p>
+`;l("subtitle-x",class extends($(HTMLElement)){})}]);

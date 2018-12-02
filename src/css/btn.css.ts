@@ -3,47 +3,48 @@ import * as conf from "./configs.css"
 
 export let btn_css = html` 
 <style>
-div {
-    background-color: ${conf.colorA};
-    border: 0.1rem solid transparent;
-    border-radius: .4rem;
-    color: #fff;
-    cursor: pointer;
-    display: inline-block;
-    font-size: 1.1rem;
-    font-weight: 700;
-    height: 3.8rem;
-    letter-spacing: .1rem;
-    line-height: 3.8rem;
-    padding: 0 3.0rem;
-    text-align: center;
-    text-decoration: none;
-    /*text-transform: uppercase;*/
-    white-space: nowrap;
-    -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-    -khtml-user-select: none; /* Konqueror HTML */
-    -moz-user-select: none; /* Firefox */
-    -ms-user-select: none; /* Internet Explorer/Edge */
-    user-select: none; /* Non-prefixed version, currentl*/
+  
+button {
+    
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: .1rem;
+
+  height: 3.8rem;
+  padding: 0 2.0rem;
+
+  background-color: ${conf.colorA};
+  border: 1px solid transparent;
+  border-radius: .4rem;
+  color: #fff;
+  cursor: pointer;
+
+  -moz-appearance: none;
+  -webkit-appearance: none;
 }
 
-div:hover {
+:host(:hover) > button {
   background-color: ${conf.colorA_d};
   border-color: transparent;
   color: #fff;
   outline: 0;
 }
 
-div:active {
+:host(:active) > button {
   background-color: ${conf.colorA_dd};
   border-color: transparent;
   color: #fff;
   outline: 0;
 }
-div[disabled]{
+:host([disabled]) > button {
   background-color: ${conf.colorA_dis};
+  border-color: ${conf.colorA_disDark};
+  color: ${conf.colorA_disDarker};
+  cursor : not-allowed;
 }
-
+button:focus {outline:none;}  
+::-moz-focus-inner {border:0;}
 
 </style>`;

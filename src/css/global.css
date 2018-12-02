@@ -1,0 +1,17 @@
+:focus {outline:none;}
+::-moz-focus-inner {border:0;}
+
+* {
+    font-family: BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+btn-x:not(:defined) {
+    display: inline-block;
+    height: 3.8rem;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+} 
+/*
+body {
+    background-color : #fdffba ;
+}*/
