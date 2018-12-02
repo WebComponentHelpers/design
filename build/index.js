@@ -72,7 +72,7 @@ ${"|*disabled*|"}
             line-height : 1.125;
             font-size : ${m}rem;
             word-break: break-word;
-            margin-bottom: -1rem;
+            margin : 0rem;
 
         }
         p ${"host(:not(:last-child)){margin-bottom: 1.5rem;}"}
@@ -108,7 +108,7 @@ ${"|*disabled*|"}
             line-height : 1.25;
             font-size : ${m*h}rem;
             word-break: break-word;
-            margin-bottom : 1rem;
+            margin : 0rem;
         }
     
         :host([small]) > p {
