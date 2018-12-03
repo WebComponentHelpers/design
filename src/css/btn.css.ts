@@ -5,7 +5,9 @@ export let btn_css = html`
 <style>
   
 button {
-    
+  margin : 0;
+  box-sizing : border-box;
+  
   text-align: center;
   text-decoration: none;
   font-size: 1.1rem;

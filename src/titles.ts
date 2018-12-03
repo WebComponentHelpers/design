@@ -6,31 +6,38 @@ let mxn = html`
         :host {
             contain: content; 
             display: block;
-        }
-        :host([bottom-margin]) > p {
-            margin-bottom: 1rem;
-        }
+                
+            margin : 0;
+            padding :0;  
+            box-sizing : border-box;
 
-        p {
             font-weight : ${weight.semibold};
             color: ${colors.grey_darker};
             line-height : 1.125;
             font-size : ${txt_sizes.size_3}rem;
             word-break: break-word;
+
+        }
+        ${mixins.block}
+        
+        :host([bottom-margin]) {
+            margin-bottom: 1rem;
+        }
+        :host([top-margin]) {
             margin-top : 1rem;
-            margin-bottom : 0rem;
-
         }
-        p ${mixins.block}
 
-        :host([small]) > p {
-            font-size : ${txt_sizes.size_4}rem;
+        :host([small]) {
+            font-size : ${txt_sizes.size_5}rem;
         }
-        :host([medium]) > p {
+        :host([medium]) {
             font-size : ${txt_sizes.size_3}rem;
         }
-        :host([large]) > p {
+        :host([large]) {
             font-size : ${txt_sizes.size_2}rem;
+        }
+        :host([inverted]) {
+            filter : invert(1);
         }
         ::slotted(strong){
             font-weight : inherit;
@@ -38,7 +45,7 @@ let mxn = html`
             font-size: ${txt_sizes.size_2}rem;
         }
     </style>
-    <p><slot></slot></p>
+    <slot></slot>
 `;
 
 customElements.define("title-x", class extends mxn(HTMLElement){});

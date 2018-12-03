@@ -52,6 +52,13 @@ export let txt_sizes = {
     subtitle_factor : 0.75
 }
 
+export let radius = {
+   small: "2px",
+   medium: "4px",
+   large:   "6px",
+   rounded: "290486px"
+};
+
 export let mixins = {
     block : "host(:not(:last-child)){margin-bottom: 1.5rem;}"
 }
