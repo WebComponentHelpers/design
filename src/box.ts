@@ -2,6 +2,7 @@ import {brick as html, dfn} from "brick-element"
 import {box_skeleton} from "./css/mixins.css"
 import {colors, weight} from "./css/configs.css"
 import "./titles"
+import "./button"
 
 let mxn = html`
     ${box_skeleton}
@@ -14,20 +15,19 @@ let mxn_mes = html`
     ${box_skeleton}
     <style>
         :host{
-            display: flex;
-            flex-direction : column;
+            
             padding : 0;
             overflow : hidden;
         }
         div { 
-            width : 100%;
-            height: auto;
+            display: flex;
+            flex-direction : row;
             background-color: ${colors.grey_dark};
             padding :10px;
+            justify-content: space-between;
         }
         p{
             margin : 0;
-            flex-grow: 1;
             padding : 20px;
         }
     </style>
@@ -35,6 +35,7 @@ let mxn_mes = html`
         <title-x small inverted> 
             <slot name="title"></slot>
         </title-x>
+        <delete-x></delete-x>
     </div>
     <p> <slot name="content"> </slot> </p>
 `;

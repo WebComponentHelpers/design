@@ -21,7 +21,7 @@ export let box_skeleton = templateme`
         box-shadow: 0 2px 3px black;
         display: block;
         padding: 1.25rem;
-        width: 500px;
+        /*width: 500px;*/
     }
     </style>
 `;
