@@ -1,7 +1,9 @@
 !function(t){var e={};function o(n){if(e[n])return e[n].exports;var r=e[n]={i:n,l:!1,exports:{}};return t[n].call(r.exports,r,r.exports,o),r.l=!0,r.exports}o.m=t,o.c=e,o.d=function(t,e,n){o.o(t,e)||Object.defineProperty(t,e,{enumerable:!0,get:n})},o.r=function(t){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(t,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(t,"__esModule",{value:!0})},o.t=function(t,e){if(1&e&&(t=o(t)),8&e)return t;if(4&e&&"object"==typeof t&&t&&t.__esModule)return t;var n=Object.create(null);if(o.r(n),Object.defineProperty(n,"default",{enumerable:!0,value:t}),2&e&&"string"!=typeof t)for(var r in t)o.d(n,r,function(e){return t[e]}.bind(null,r));return n},o.n=function(t){var e=t&&t.__esModule?function(){return t.default}:function(){return t};return o.d(e,"a",e),e},o.o=function(t,e){return Object.prototype.hasOwnProperty.call(t,e)},o.p="",o(o.s=0)}([function(t,e,o){"use strict";function n(t){throw console.log("LitRead does not accept the following ${ } as input in string literal:"),console.log(t),Error("Invalid input.")}function r(t,...e){let o;if(o={template:"",props:{},imports:[],IDs:[]},t.length<=e.length)throw Error("Improper parameter size.");if(1===t.length)return o.template=`${t[0]}`,o;let r="";return t.forEach((t,s)=>{if(r+=t,s===e.length)return;let i=e[s];if("string"==typeof i){let t=i;if(t.trim(),"#"===t[0]&&"-"===t[1])r+=` id="${t.substring(2)}" `,o.IDs.push(t.substring(2));else if("|*"===t.slice(0,2)&&"*|"===t.slice(-2)){let e=t.replace(/\s/g,"").slice(2,-2).split("|");for(let t of e)t.includes("-b")?o.props[t.replace(/\-b/g,"")]="bool":o.props[t]="string"}else r+=i}else if("object"==typeof i)if(Array.isArray(i))for(let t of i)"string"==typeof t?r+=" "+t:"object"==typeof t&&"tagName"in t&&"TEMPLATE"===t.tagName?o.imports.push(t):n(t);else"tagName"in i&&"TEMPLATE"===i.tagName?o.imports.push(i):n(i);else"number"==typeof i?r+=i.toString(10):n(i)}),o.template=r,o}function s(t,...e){let o=r(t,...e),n=document.createElement("template");return n.innerHTML=o.template,Object.defineProperty(n,"_props",o.props),Object.defineProperty(n,"_IDs",o.IDs),n}function i(t,...e){let o=r(t,...e),n=document.createElement("template");return n.innerHTML=o.template,o.imports.push(n),(t,e)=>(class extends t{static get observedAttributes(){return Object.keys(o.props)}constructor(){super(),this._props=o.props;let t,n=e?e.shadowRoot:{mode:"open",delegatesFocus:!1},r=this.attachShadow(n);for(let t of o.imports)r.appendChild(t.content.cloneNode(!0));t={};for(let e of o.IDs)t[e]=r.getElementById(e);this.ids=t,this.shadowRoot.qs=this.shadowRoot.querySelector,this.swr=this.shadowRoot,this.setProps()}setProps(){for(let t in this._props)Object.defineProperty(this,t,{set:e=>{this.setAttribute(t,e)},get:()=>this.getAttribute(t)})}attributeChangedCallback(t,e,o){(!(null!==o)||e!==o)&&this._props.hasOwnProperty(t)&&void 0!==this["update_"+t]&&this["update_"+t](o)}})}o.r(e);let l=customElements.define.bind(customElements),d=400,a=600,c="hsl(0, 0%, 4%)",p="hsl(0, 0%, 21%)",u="hsl(0, 0%, 41%)",b="hsl(0, 0%, 86%)",h="hsl(0, 0%, 100%)",m="hsl(171, 100%, 41%)",f="hsl(217, 71%,  53%)",g=2.5,x=2,$=1.5,y=1.25,w=.75,v="4px",k=s`
     <style>
         :host{
-            contain: content; 
+            contain: content;
+            box-sizing : border-box;
+            display: inline;
         }
         p,div{
             box-sizing : border-box;
@@ -18,7 +20,7 @@
             background-color: transparent;
           }
     <style>
-`,E=s`
+`,z=s`
     <style>
     :host{
         margin : 0;
@@ -32,11 +34,13 @@
         /*width: 500px;*/
     }
     </style>
-`,z=i`
+`,E=i`
 ${[s`
     <style>
     :host{
         contain: content; 
+        box-sizing : border-box;
+        display: inline;
     }
     </style>
 `,s` 
@@ -130,7 +134,7 @@ button:focus {outline:none;}
 <button ${"#-btn"}> <slot>Click Me</slot></button>
 
 ${"|*disabled*|"}
-`;class M extends(z(HTMLElement,{shadowRoot:{mode:"open",delegatesFocus:!0}})){constructor(){super(),this.ids.btn.onclick=this.onclick,this.ids.btn.onblur=this.onblur,this.ids.btn.onfocus=this.onfocus}update_disabled(t){""===t?this.ids.btn.setAttribute("disabled",""):this.ids.btn.removeAttribute("disabled")}}customElements.define("btn-x",M);let T=s`
+`;class M extends(E(HTMLElement,{shadowRoot:{mode:"open",delegatesFocus:!0}})){constructor(){super(),this.ids.btn.onclick=this.onclick,this.ids.btn.onblur=this.onblur,this.ids.btn.onfocus=this.onfocus}update_disabled(t){""===t?this.ids.btn.setAttribute("disabled",""):this.ids.btn.removeAttribute("disabled")}}customElements.define("btn-x",M);let T=s`
     <style>
         button {
             background-color: ${p};
@@ -227,10 +231,10 @@ ${"|*disabled*|"}
     </style>
     <p><slot></slot></p>
 `;l("subtitle-x",class extends(_(HTMLElement)){});let L=i`
-    ${E}
+    ${z}
     <slot></slot>
 `;l("box-x",class extends(L(HTMLElement)){});let P=i`
-    ${E}
+    ${z}
     <style>
         :host{
             
