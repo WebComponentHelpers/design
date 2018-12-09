@@ -5,9 +5,30 @@ export let host = templateme`
     <style>
     :host{
         contain: content; 
-        display: inline-block;
     }
     </style>
+`;
+
+export let normalize = templateme`
+    <style>
+        :host{
+            contain: content; 
+        }
+        p,div{
+            box-sizing : border-box;
+        }
+        p{
+            margin:0;
+            padding:0;
+        }
+        b,
+        strong {
+            font-weight: bolder;
+        }
+        a {
+            background-color: transparent;
+          }
+    <style>
 `;
 
 export let box_skeleton = templateme`
@@ -24,4 +45,9 @@ export let box_skeleton = templateme`
         /*width: 500px;*/
     }
     </style>
+`;
+
+export let focus_mxn = `
+    border-color: ${conf.colors.blue};
+    box-shadow : 0 0 0 0.175em rgba(50, 115, 220, 0.25);
 `;

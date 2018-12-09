@@ -6,14 +6,14 @@
 }
 
 * :not(:defined) {
-    display: inline-block;
+    display: block;
     height: 3.8rem;
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
 } 
 
 btn-x:not(:defined) {
-    display: inline-block;
+    display: block;
     height: 3.8rem;
     opacity: 0;
     transition: opacity 0.3s ease-in-out;

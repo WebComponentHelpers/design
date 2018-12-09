@@ -10,10 +10,12 @@ ${[host,btn_css]}
 ${"|*disabled*|"}
 `;
 
-class buttonX extends mxn(HTMLElement){
+class buttonX extends mxn(HTMLElement,{shadowRoot:{mode:'open',delegatesFocus:true}}){
     constructor(){
         super();
         this.ids.btn.onclick = this.onclick;
+        this.ids.btn.onblur  = this.onblur;
+        this.ids.btn.onfocus = this.onfocus;
     }
 
     update_disabled(val:string){
@@ -30,12 +32,15 @@ let del_tmpl = templateme`
         button {
             background-color: ${colors.grey_darker};
             color : ${colors.grey_lighter};
-            border-radius: ${radius.rounded};
+            border-radius: ${radius.medium};
             width : 25px;
             height: 25px;
             padding : 0px;
             margin: 0px;
-            vertical-align:top;
+            padding-bottom : 0.2rem;
+            vertical-align:center;
+            letter-spacing: 0rem;
+          
 
         }
 `;
