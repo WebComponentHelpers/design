@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>test</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <style>
+        #a1{
+            display: block;
+            border: 1px solid blue;
+            box-shadow : 0 0 0 0.175em rgba(50, 115, 220, 0.25);
+            box-sizing: border-box;
+        }
+    </style>
+
+    <script>
+        class testDiv extends HTMLElement{
+            constructor(){
+                super();
+                const shadowRoot = this.attachShadow({mode: 'open'});
+                shadowRoot.innerHTML = `
+                <style>
+                    :host{
+                        contain: content; 
+                    }
+            #a1{
+                margin-top : 10px;
+                display: block;
+                border: 1px solid blue;
+                box-shadow : 0 0 0 0.375em rgba(50, 115, 220, 0.25);
+                box-sizing: border-box;
+            }
+            </style>
+            <div id="a1"> Ciao  </div>
+            `;
+            }
+        }
+
+        customElements.define('test-div', testDiv);
+    </script>
+
+    <div id="a1"> Ciao  </div>
+    <test-div></test-div>
+
+</body>
+</html>
