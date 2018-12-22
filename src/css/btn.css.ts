@@ -17,24 +17,26 @@ button {
 
   padding: 0.8rem;
 
-  background-color: ${conf.colorA};
+  background-color:  var(--bg-color, ${conf.colorA});
   border: 1px solid transparent;
-  border-radius: .4rem;
-  color: #fff;
+  border: var(--border, 1px solid transparent);
+  border-bottom: var(--border-bottom, 1px solid transparent);
+  border-radius: var(--radious, .4rem);
+  color: var(--color,#fff);
   cursor: pointer;
 
   -moz-appearance: none;
   -webkit-appearance: none;
 }
 
-:host(:hover) > button {
+:host(:not([simple]):hover) > button {
   background-color: ${conf.colorA_d};
   border-color: transparent;
   color: #fff;
   outline: 0;
 }
 
-:host(:active) > button {
+:host(:not([simple]):active) > button {
   background-color: ${conf.colorA_dd};
   border-color: transparent;
   color: #fff;
@@ -47,16 +49,27 @@ button {
   border-color: ${conf.colors.grey_lighter};
   outline: 0;
 }
-:host([white]:hover) > button {
+:host(:not([simple])[white]:hover) > button {
   border-color: ${conf.colors.grey_dark};
+  background-color: ${conf.colors.white};
+  color: ${conf.colors.grey_dark};
 }
-:host([white]:active) > button {
+:host(:not([simple])[white]:active) > button {
   color: ${conf.colors.grey_darker};
+  background-color: ${conf.colors.white};
+  border-color: ${conf.colors.grey_dark};
+
 }
 
 :host([focus]) > button:focus {
   ${focus_mxn}
-  color : ${conf.colors.blue}
+}
+:host(:not([simple])[focus]) > button:focus {
+  ${focus_mxn}
+}
+
+:host(:not([simple])[white][focus]) > button:focus {
+  ${focus_mxn}
 }
 
 :host([disabled]) > button {

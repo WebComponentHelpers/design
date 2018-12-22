@@ -11,6 +11,7 @@ ${"|*disabled*|"}
 `;
 
 class buttonX extends mxn(HTMLElement,{shadowRoot:{mode:'open',delegatesFocus:true}}){
+    ids:{[key:string]:any}
     constructor(){
         super();
         this.ids.btn.onclick = this.onclick;

@@ -1,4 +1,4 @@
-!function(t){var e={};function o(n){if(e[n])return e[n].exports;var r=e[n]={i:n,l:!1,exports:{}};return t[n].call(r.exports,r,r.exports,o),r.l=!0,r.exports}o.m=t,o.c=e,o.d=function(t,e,n){o.o(t,e)||Object.defineProperty(t,e,{enumerable:!0,get:n})},o.r=function(t){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(t,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(t,"__esModule",{value:!0})},o.t=function(t,e){if(1&e&&(t=o(t)),8&e)return t;if(4&e&&"object"==typeof t&&t&&t.__esModule)return t;var n=Object.create(null);if(o.r(n),Object.defineProperty(n,"default",{enumerable:!0,value:t}),2&e&&"string"!=typeof t)for(var r in t)o.d(n,r,function(e){return t[e]}.bind(null,r));return n},o.n=function(t){var e=t&&t.__esModule?function(){return t.default}:function(){return t};return o.d(e,"a",e),e},o.o=function(t,e){return Object.prototype.hasOwnProperty.call(t,e)},o.p="",o(o.s=0)}([function(t,e,o){"use strict";function n(t){throw console.log("LitRead does not accept the following ${ } as input in string literal:"),console.log(t),Error("Invalid input.")}function r(t,...e){let o;if(o={template:"",props:{},imports:[],IDs:[]},t.length<=e.length)throw Error("Improper parameter size.");if(1===t.length)return o.template=`${t[0]}`,o;let r="";return t.forEach((t,s)=>{if(r+=t,s===e.length)return;let i=e[s];if("string"==typeof i){let t=i;if(t.trim(),"#"===t[0]&&"-"===t[1])r+=` id="${t.substring(2)}" `,o.IDs.push(t.substring(2));else if("|*"===t.slice(0,2)&&"*|"===t.slice(-2)){let e=t.replace(/\s/g,"").slice(2,-2).split("|");for(let t of e)t.includes("-b")?o.props[t.replace(/\-b/g,"")]="bool":o.props[t]="string"}else r+=i}else if("object"==typeof i)if(Array.isArray(i))for(let t of i)"string"==typeof t?r+=" "+t:"object"==typeof t&&"tagName"in t&&"TEMPLATE"===t.tagName?o.imports.push(t):n(t);else"tagName"in i&&"TEMPLATE"===i.tagName?o.imports.push(i):n(i);else"number"==typeof i?r+=i.toString(10):n(i)}),o.template=r,o}function s(t,...e){let o=r(t,...e),n=document.createElement("template");return n.innerHTML=o.template,Object.defineProperty(n,"_props",o.props),Object.defineProperty(n,"_IDs",o.IDs),n}function i(t,...e){let o=r(t,...e),n=document.createElement("template");return n.innerHTML=o.template,o.imports.push(n),(t,e)=>(class extends t{static get observedAttributes(){return Object.keys(o.props)}constructor(){super(),this._props=o.props;let t,n=e?e.shadowRoot:{mode:"open",delegatesFocus:!1},r=this.attachShadow(n);for(let t of o.imports)r.appendChild(t.content.cloneNode(!0));t={};for(let e of o.IDs)t[e]=r.getElementById(e);this.ids=t,this.shadowRoot.qs=this.shadowRoot.querySelector,this.swr=this.shadowRoot,this.setProps()}setProps(){for(let t in this._props)Object.defineProperty(this,t,{set:e=>{this.setAttribute(t,e)},get:()=>this.getAttribute(t)})}attributeChangedCallback(t,e,o){(!(null!==o)||e!==o)&&this._props.hasOwnProperty(t)&&void 0!==this["update_"+t]&&this["update_"+t](o)}})}o.r(e);let l=customElements.define.bind(customElements),d=400,a=600,c="hsl(0, 0%, 4%)",p="hsl(0, 0%, 21%)",u="hsl(0, 0%, 41%)",b="hsl(0, 0%, 86%)",h="hsl(0, 0%, 100%)",m="hsl(171, 100%, 41%)",f="hsl(217, 71%,  53%)",g=2.5,x=2,$=1.5,y=1.25,w=.75,v="4px",k=s`
+!function(t){var e={};function o(r){if(e[r])return e[r].exports;var s=e[r]={i:r,l:!1,exports:{}};return t[r].call(s.exports,s,s.exports,o),s.l=!0,s.exports}o.m=t,o.c=e,o.d=function(t,e,r){o.o(t,e)||Object.defineProperty(t,e,{enumerable:!0,get:r})},o.r=function(t){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(t,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(t,"__esModule",{value:!0})},o.t=function(t,e){if(1&e&&(t=o(t)),8&e)return t;if(4&e&&"object"==typeof t&&t&&t.__esModule)return t;var r=Object.create(null);if(o.r(r),Object.defineProperty(r,"default",{enumerable:!0,value:t}),2&e&&"string"!=typeof t)for(var s in t)o.d(r,s,function(e){return t[e]}.bind(null,s));return r},o.n=function(t){var e=t&&t.__esModule?function(){return t.default}:function(){return t};return o.d(e,"a",e),e},o.o=function(t,e){return Object.prototype.hasOwnProperty.call(t,e)},o.p="",o(o.s=0)}([function(t,e,o){"use strict";function r(t){throw console.log("LitRead does not accept the following ${ } as input in string literal:"),console.log(t),Error("Invalid input.")}function s(t,...e){let o;if(o={template:"",props:{},imports:[],IDs:[]},t.length<=e.length)throw Error("Improper parameter size.");if(1===t.length)return o.template=`${t[0]}`,o;let s="";return t.forEach((t,n)=>{if(s+=t,n===e.length)return;let i=e[n];if("string"==typeof i){let t=i;if(t.trim(),"#"===t[0]&&"-"===t[1])s+=` id="${t.substring(2)}" `,o.IDs.push(t.substring(2));else if("|*"===t.slice(0,2)&&"*|"===t.slice(-2)){let e=t.replace(/\s/g,"").slice(2,-2).split("|");for(let t of e)t.includes("-b")?o.props[t.replace(/\-b/g,"")]="bool":o.props[t]="string"}else s+=i}else if("object"==typeof i)if(Array.isArray(i))for(let t of i)"string"==typeof t?s+=" "+t:"object"==typeof t&&"tagName"in t&&"TEMPLATE"===t.tagName?o.imports.push(t):r(t);else"tagName"in i&&"TEMPLATE"===i.tagName?o.imports.push(i):r(i);else"number"==typeof i?s+=i.toString(10):r(i)}),o.template=s,o}function n(t,...e){let o=s(t,...e),r=document.createElement("template");return r.innerHTML=o.template,Object.defineProperty(r,"_props",o.props),Object.defineProperty(r,"_IDs",o.IDs),r}function i(t,...e){let o=s(t,...e),r=document.createElement("template");return r.innerHTML=o.template,o.imports.push(r),(t,e)=>(class extends t{static get observedAttributes(){let t=[];return super.observedAttributes&&(t=super.observedAttributes),t.concat(Object.keys(o.props))}constructor(){super(),this._props||(this._props={});for(let t in o.props)this._props[t]=o.props[t];let t=e&&e.shadowRoot?e.shadowRoot:{mode:"open",delegatesFocus:!1},r=e&&e.inherit?this.shadowRoot:this.attachShadow(t);for(let t of o.imports)r.appendChild(t.content.cloneNode(!0));this.ids||(this.ids={});for(let t of o.IDs)this.ids[t]=r.getElementById(t);this.shadowRoot.qs=this.shadowRoot.querySelector,this.swr=this.shadowRoot,e&&e.inherit||this.setProps()}setProps(){for(let t in o.props)Object.defineProperty(this,t,{set:e=>{this.setAttribute(t,e)},get:()=>this.getAttribute(t)})}attributeChangedCallback(t,e,o){(!(null!==o)||e!==o)&&this._props.hasOwnProperty(t)&&void 0!==this["update_"+t]&&this["update_"+t](o)}})}o.r(e);let l=customElements.define.bind(customElements),d=400,a=600,c="hsl(0, 0%, 4%)",u="hsl(0, 0%, 21%)",p="hsl(0, 0%, 41%)",b="hsl(0, 0%, 86%)",h="hsl(0, 0%, 100%)",m="hsl(171, 100%, 41%)",f="hsl(217, 71%,  53%)",g=2.5,x=2,$=1.5,y=1.25,v=.75,w="4px",k="6px",z=n`
     <style>
         :host{
             contain: content;
@@ -20,22 +20,21 @@
             background-color: transparent;
           }
     <style>
-`,z=s`
+`,E=n`
     <style>
     :host{
         margin : 0;
         box-sizing : border-box;
 
         background-color: ${h};
-        border-radius: ${"6px"};
+        border-radius: ${k};
         box-shadow: 0 2px 3px black;
         display: block;
         padding: 1.25rem;
-        /*width: 500px;*/
     }
     </style>
-`,E=i`
-${[s`
+`,M=`\n    border-color: var(--focus-border-color,${f});\n    box-shadow : 0 0 0 var(--focus-shadow,0.175em) rgba(50, 115, 220, 0.25);\n    color : var(--focus-color,${f})\n`,T=i`
+${[n`
     <style>
     :host{
         contain: content; 
@@ -43,7 +42,7 @@ ${[s`
         display: inline;
     }
     </style>
-`,s` 
+`,n` 
 <style>
   
 button {
@@ -58,24 +57,26 @@ button {
 
   padding: 0.8rem;
 
-  background-color: ${"#00d1b2"};
+  background-color:  var(--bg-color, ${"#00d1b2"});
   border: 1px solid transparent;
-  border-radius: .4rem;
-  color: #fff;
+  border: var(--border, 1px solid transparent);
+  border-bottom: var(--border-bottom, 1px solid transparent);
+  border-radius: var(--radious, .4rem);
+  color: var(--color,#fff);
   cursor: pointer;
 
   -moz-appearance: none;
   -webkit-appearance: none;
 }
 
-:host(:hover) > button {
+:host(:not([simple]):hover) > button {
   background-color: ${"#00c4a7"};
   border-color: transparent;
   color: #fff;
   outline: 0;
 }
 
-:host(:active) > button {
+:host(:not([simple]):active) > button {
   background-color: ${"#00b89c"};
   border-color: transparent;
   color: #fff;
@@ -84,20 +85,31 @@ button {
 
 :host([white]) > button{
   background-color: ${h};
-  color: ${u};
+  color: ${p};
   border-color: ${b};
   outline: 0;
 }
-:host([white]:hover) > button {
-  border-color: ${u};
-}
-:host([white]:active) > button {
+:host(:not([simple])[white]:hover) > button {
+  border-color: ${p};
+  background-color: ${h};
   color: ${p};
+}
+:host(:not([simple])[white]:active) > button {
+  color: ${u};
+  background-color: ${h};
+  border-color: ${p};
+
 }
 
 :host([focus]) > button:focus {
-  ${`\n    border-color: ${f};\n    box-shadow : 0 0 0 0.175em rgba(50, 115, 220, 0.25);\n`}
-  color : ${f}
+  ${M}
+}
+:host(:not([simple])[focus]) > button:focus {
+  ${M}
+}
+
+:host(:not([simple])[white][focus]) > button:focus {
+  ${M}
 }
 
 :host([disabled]) > button {
@@ -134,12 +146,12 @@ button:focus {outline:none;}
 <button ${"#-btn"}> <slot>Click Me</slot></button>
 
 ${"|*disabled*|"}
-`;class M extends(E(HTMLElement,{shadowRoot:{mode:"open",delegatesFocus:!0}})){constructor(){super(),this.ids.btn.onclick=this.onclick,this.ids.btn.onblur=this.onblur,this.ids.btn.onfocus=this.onfocus}update_disabled(t){""===t?this.ids.btn.setAttribute("disabled",""):this.ids.btn.removeAttribute("disabled")}}customElements.define("btn-x",M);let T=s`
+`;class _ extends(T(HTMLElement,{shadowRoot:{mode:"open",delegatesFocus:!0}})){constructor(){super(),this.ids.btn.onclick=this.onclick,this.ids.btn.onblur=this.onblur,this.ids.btn.onfocus=this.onfocus}update_disabled(t){""===t?this.ids.btn.setAttribute("disabled",""):this.ids.btn.removeAttribute("disabled")}}customElements.define("btn-x",_);let A=n`
     <style>
         button {
-            background-color: ${p};
+            background-color: ${u};
             color : ${b};
-            border-radius: ${v};
+            border-radius: ${w};
             width : 25px;
             height: 25px;
             padding : 0px;
@@ -150,7 +162,7 @@ ${"|*disabled*|"}
           
 
         }
-`;l("delete-x",class extends M{constructor(){super(),this.ids.btn.innerHTML="x",this.swr.appendChild(T.content.cloneNode(!0))}});let j=i`
+`;l("delete-x",class extends _{constructor(){super(),this.ids.btn.innerHTML="x",this.swr.appendChild(A.content.cloneNode(!0))}});let j=i`
     <style>
         :host {
             contain: content; 
@@ -161,7 +173,7 @@ ${"|*disabled*|"}
             box-sizing : border-box;
 
             font-weight : ${a};
-            color: ${p};
+            color: ${u};
             line-height : 1.125;
             font-size : ${x}rem;
             word-break: break-word;
@@ -195,7 +207,7 @@ ${"|*disabled*|"}
         }
     </style>
     <slot></slot>
-`;customElements.define("title-x",class extends(j(HTMLElement)){});let _=i`
+`;customElements.define("title-x",class extends(j(HTMLElement)){});let L=i`
     <style>
         :host {
             contain: content; 
@@ -206,35 +218,35 @@ ${"|*disabled*|"}
         }
         p {
             font-weight : ${d};
-            color: ${u};
+            color: ${p};
             line-height : 1.25;
-            font-size : ${x*w}rem;
+            font-size : ${x*v}rem;
             word-break: break-word;
             margin-top : 1rem;
             margin-bottom : 0rem;
         }
     
         :host([small]) > p {
-            font-size : ${$*w}rem;
+            font-size : ${$*v}rem;
         }
         :host([medium]) > p {
-            font-size : ${x*w}rem;
+            font-size : ${x*v}rem;
         }
         :host([large]) > p {
-            font-size : ${g*w}rem;
+            font-size : ${g*v}rem;
         }
         ::slotted(strong){
             font-weight : ${a};
-            color: ${u};
-            font-size: ${g*w}rem;
+            color: ${p};
+            font-size: ${g*v}rem;
         }
     </style>
     <p><slot></slot></p>
-`;l("subtitle-x",class extends(_(HTMLElement)){});let L=i`
-    ${z}
+`;l("subtitle-x",class extends(L(HTMLElement)){});let P=i`
+    ${E}
     <slot></slot>
-`;l("box-x",class extends(L(HTMLElement)){});let P=i`
-    ${z}
+`;l("box-x",class extends(P(HTMLElement)){});let O=i`
+    ${E}
     <style>
         :host{
             
@@ -244,7 +256,7 @@ ${"|*disabled*|"}
         div { 
             display: flex;
             flex-direction : row;
-            background-color: ${u};
+            background-color: ${p};
             padding :10px;
             justify-content: space-between;
         }
@@ -260,17 +272,18 @@ ${"|*disabled*|"}
         <delete-x></delete-x>
     </div>
     <p> <slot name="content"> </slot> </p>
-`;l("message-x",class extends(P(HTMLElement)){});let O=i` 
-    ${k}
+`;l("message-x",class extends(O(HTMLElement)){});let H=i` 
+    ${z}
     
     <style>
         :host{
             display:block;
-            background-color: ${h};
-            border: 1px solid;
-            border-color: ${b};
-            border-radius: ${v};
+            background-color: var(--bg-color,${h});
+            border: var(--border,1px solid);
+            border-color: var(--border-color, ${b});
+            border-radius: var(--border-radius, ${w});
             min-width: 10rem;
+            
         }
 
         ::slotted(a){
@@ -302,7 +315,9 @@ ${"|*disabled*|"}
     <div ${"#-box"}>
         <slot></slot>
     </div>
-`;l("menu-x",class extends(O(HTMLElement)){});let H=i`
+`;l("menu-x",class extends(H(HTMLElement)){});let I=i`
+    ${z}
+
     <style>
 
         menu-x{
@@ -319,7 +334,6 @@ ${"|*disabled*|"}
             display:inline;
         }
         :host{
-            display:inline;
             position: relative;
             outline:none;
         }
@@ -334,4 +348,74 @@ ${"|*disabled*|"}
         <btn-x white focus ${"#-btn"}> <slot> I droppo  ;)</slot></btn-x>
         <menu-x ${"#-menu"}> <slot name="menu"> </slot> </menu-x>
     
-`;l("drop-x",class extends(H(HTMLElement)){constructor(){super(),this.ids.btn.onfocus=this.drop.bind(this),this.ids.btn.onblur=this.undrop.bind(this)}drop(){this.ids.menu.style.display="block"}undrop(){this.ids.menu.style.display="none"}})}]);
+`;class R extends(I(HTMLElement)){constructor(){super(),this.ids.btn.onfocus=this.drop.bind(this),this.ids.btn.onblur=this.undrop.bind(this)}drop(){this.ids.menu.style.display="block"}undrop(){this.ids.menu.style.display="none"}}l("drop-x",R);let S=i`
+    <style>
+        menu-x{
+            margin-top: 0px;
+            --bg-color:pink;
+            --border:0px;
+            --border-radius:0px ${w} ${w} ${w} ; 
+        }
+        btn-x {
+            --bg-color:pink;
+            --radious: ${w} ${w} 0 0;
+            --color: ${p};
+            --focus-border-color:red;
+            --focus-color:red;
+            --focus-shadow:0;
+            --border: 0px;
+            --border-bottom: 8px solid transparent;
+
+        }
+    </style>
+
+`;l("smart-tag",class extends(S(R,{inherit:!0})){constructor(){super(),this.ids.btn.removeAttribute("white"),this.ids.btn.setAttribute("simple","")}});let N=i`
+    ${z}
+    <style>
+        :host{
+            border-width:1px;
+            border-style:solid;
+            background-color:${h};
+            border-color:${b};
+            border-radius:${k};
+            display:inline-flex;
+            flex-direction:row;
+        }
+        :host([focused=""]){
+            ${M}
+        }
+        input{
+            margin:0px;
+            color:${u};
+            background-color:${h};
+            border-radius:${k};
+            /*height:2.25em;*/
+            padding:0.5em;
+            border-style:none;
+            font-family: inherit; /* 1 */
+            font-size: 100%; /* 1 */
+            line-height: 1.15; /* 1 */
+            overflow: visible;
+        }
+        input:focus{
+            outline:none;
+            border-style:none;
+        }
+        div[before=""]{
+            padding:0.5em;
+            padding-right:0em;
+        }
+        div[after=""]{
+            padding:0.5em;
+            padding-left:0em;
+        }
+        ::slotted(*){
+            color:${u};
+        }
+    </style>
+
+    <div before> <slot name="before"> test </slot> </div>
+    <input type="text" ${"#-inpt"} >
+    <div after> <slot name="after"></slot> </div>
+    ${"|*placeholder*|"}
+`;l("input-x",class extends(N(HTMLElement)){constructor(){super(),this.ids.inpt.onfocus=this.focuseme.bind(this),this.ids.inpt.onblur=this.blurme.bind(this)}focuseme(){this.setAttribute("focused",""),this.onfocus&&this.onfocus()}blurme(){this.removeAttribute("focused"),this.onblur&&this.onblur,this.validate&&this.validate()}get value(){return this.ids.inpt.value}set value(t){this.ids.inpt.value=t}update_placeholder(t){this.ids.inpt.placeholder=t}})}]);

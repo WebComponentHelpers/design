@@ -46,12 +46,12 @@ export let box_skeleton = templateme`
         box-shadow: 0 2px 3px black;
         display: block;
         padding: 1.25rem;
-        /*width: 500px;*/
     }
     </style>
 `;
 
 export let focus_mxn = `
-    border-color: ${conf.colors.blue};
-    box-shadow : 0 0 0 0.175em rgba(50, 115, 220, 0.25);
+    border-color: var(--focus-border-color,${conf.colors.blue});
+    box-shadow : 0 0 0 var(--focus-shadow,0.175em) rgba(50, 115, 220, 0.25);
+    color : var(--focus-color,${conf.colors.blue})
 `;

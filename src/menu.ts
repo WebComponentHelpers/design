@@ -10,11 +10,12 @@ let mxn = html`
     <style>
         :host{
             display:block;
-            background-color: ${colors.white};
-            border: 1px solid;
-            border-color: ${colors.grey_lighter};
-            border-radius: ${radius.medium};
+            background-color: var(--bg-color,${colors.white});
+            border: var(--border,1px solid);
+            border-color: var(--border-color, ${colors.grey_lighter});
+            border-radius: var(--border-radius, ${radius.medium});
             min-width: 10rem;
+            
         }
 
         ::slotted(a){
@@ -61,6 +62,8 @@ dfn("menu-x",class extends mxn(HTMLElement){
 });
 
 let drop_mxn = html`
+    ${normalize}
+
     <style>
 
         menu-x{
@@ -77,7 +80,6 @@ let drop_mxn = html`
             display:inline;
         }
         :host{
-            display:inline;
             position: relative;
             outline:none;
         }
@@ -94,8 +96,8 @@ let drop_mxn = html`
     
 `;
 
-dfn("drop-x", class extends drop_mxn(HTMLElement){
-
+class dropX extends drop_mxn(HTMLElement){
+    ids:{[key:string]:any}
     constructor(){
         super();
         this.ids.btn.onfocus = this.drop.bind(this);
@@ -109,5 +111,39 @@ dfn("drop-x", class extends drop_mxn(HTMLElement){
 
     undrop(){
         this.ids.menu.style.display = "none";
+    }
+};
+dfn("drop-x",dropX);
+
+
+let mxn_tag = html`
+    <style>
+        menu-x{
+            margin-top: 0px;
+            --bg-color:pink;
+            --border:0px;
+            --border-radius:0px ${radius.medium} ${radius.medium} ${radius.medium} ; 
+        }
+        btn-x {
+            --bg-color:pink;
+            --radious: ${radius.medium} ${radius.medium} 0 0;
+            --color: ${colors.grey_dark};
+            --focus-border-color:red;
+            --focus-color:red;
+            --focus-shadow:0;
+            --border: 0px;
+            --border-bottom: 8px solid transparent;
+
+        }
+    </style>
+
+`;
+
+dfn("smart-tag", class extends mxn_tag(dropX,{inherit:true}){
+    ids:{[key:string]:any}
+    constructor(){
+        super();
+        this.ids.btn.removeAttribute("white");
+        this.ids.btn.setAttribute("simple","");
     }
 });
