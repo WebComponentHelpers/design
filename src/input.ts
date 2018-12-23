@@ -13,6 +13,7 @@ let mxn = html`
             border-radius:${radius.large};
             display:inline-flex;
             flex-direction:row;
+            z-index:0;
         }
         :host([focused=""]){
             ${focus_mxn}
@@ -50,6 +51,7 @@ let mxn = html`
     <div before> <slot name="before"> test </slot> </div>
     <input type="text" ${'#-inpt'} >
     <div after> <slot name="after"></slot> </div>
+
     ${'|*placeholder*|'}
 `;
 
@@ -70,17 +72,64 @@ dfn('input-x', class extends mxn(HTMLElement){
         if(this.onblur)this.onblur;
         if(this.validate) this.validate();
     }
-    get value(){
+        get value(){
 
-        // FIXME add escaping 
-        return this.ids.inpt.value ;   
-    }
-
-    set value( val){
-        // FIXME add escaping 
-        this.ids.inpt.value = val;
+            // FIXME add escaping 
+            return this.ids.inpt.value ;   
+        }
+    
+        set value( val){
+            // FIXME add escaping 
+            this.ids.inpt.value = val;
     }
     update_placeholder( val:string){
         this.ids.inpt.placeholder = val;
     }
 })
+
+let check = html`
+    ${normalize}
+    <style>
+        :host{
+            cursor: pointer;
+            display: inline;
+            overflow: visible;
+        }
+        input{
+            cursor: pointer;
+            position: relative;
+            -ms-transform: scale(1.5); /* IE */
+            -moz-transform: scale(1.5); /* FF */
+            -webkit-transform: scale(1.5); /* Safari and Chrome */
+            -o-transform: scale(1.5); /* Opera */
+            transform: scale(1.5);
+            margin:0.4rem;
+            border-style:none;
+            line-height: 1.25; /* 1 */
+            overflow: visible;
+        }
+        label{
+            font-size: inherit
+
+        }
+    </style>
+
+    <input type="checkbox" name="chbox" ${'#-inpt'}>
+    <label for="chbox"><slot></slot></label>
+    
+`;
+
+dfn('checkbox-x', class extends check(HTMLElement){
+    ids:{[key:string]:any}
+
+    get value(){
+
+        // FIXME add escaping 
+        return this.ids.inpt.checked ;   
+    }
+
+    set value( val){
+        // FIXME add escaping 
+        this.ids.inpt.checked = val;
+}
+});

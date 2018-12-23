@@ -65,7 +65,7 @@ let drop_mxn = html`
     ${normalize}
 
     <style>
-
+        
         menu-x{
             margin-top : 4px;
             display: none;
@@ -82,6 +82,7 @@ let drop_mxn = html`
         :host{
             position: relative;
             outline:none;
+            z-index: 20;
         }
         :host(:focus) {
             outline:none;
