@@ -82,7 +82,6 @@ let drop_mxn = html`
         :host{
             position: relative;
             outline:none;
-            z-index: 20;
         }
         :host(:focus) {
             outline:none;
