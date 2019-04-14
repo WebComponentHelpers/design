@@ -1,5 +1,5 @@
 import {brick as html, templateme, dfn} from "brick-element"
-import {normalize} from "./css/mixins.css"
+import {normalize, shadow} from "./css/mixins.css"
 import {colors, radius} from "./css/configs.css"
 import "./button"
 
@@ -15,7 +15,7 @@ let mxn = html`
             border-color: var(--border-color, ${colors.grey_lighter});
             border-radius: var(--border-radius, ${radius.medium});
             min-width: 10rem;
-            
+            ${shadow}
         }
 
         ::slotted(a){
@@ -70,7 +70,7 @@ let drop_mxn = html`
             margin-top : 4px;
             display: none;
             position: absolute;
-            left:0%;
+            left:4px;
             z-index: 20;
         }
         menu-x[hidden]{
@@ -90,6 +90,16 @@ let drop_mxn = html`
         :host(:active){
             outline:none;
         }
+        @media only screen and (max-width: 500px) {
+            menu-x{
+                width: 100%;
+                left:0%;
+            }
+            :host{
+                position:static;
+            }
+        }
+
     </style>
 
         <btn-x white focus ${'#-btn'}> <slot> I droppo  ;)</slot></btn-x>
@@ -121,16 +131,16 @@ let mxn_tag = html`
     <style>
         menu-x{
             margin-top: 0px;
-            --bg-color:pink;
+            --bg-color:${colors.white};
             --border:0px;
             --border-radius:0px ${radius.medium} ${radius.medium} ${radius.medium} ; 
         }
         btn-x {
-            --bg-color:pink;
+            --bg-color:${colors.blue};
             --radious: ${radius.medium} ${radius.medium} 0 0;
-            --color: ${colors.grey_dark};
-            --focus-border-color:red;
-            --focus-color:red;
+            --color: ${colors.grey_darker};
+            --focus-border-color:${colors.grey_dark};
+            --focus-color:${colors.white};
             --focus-shadow:0;
             --border: 0px;
             --border-bottom: 8px solid transparent;

@@ -20,6 +20,6 @@ btn-x:not(:defined) {
 } 
 
 body {
-    background-color : #fdffba ;
+    background-color : white ;
     padding:50px;
 }
