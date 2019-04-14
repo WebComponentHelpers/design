@@ -1,7 +1,6 @@
-import {brick as html, dfn} from "brick-element"
-import {weight, colors, txt_sizes, mixins} from "./css/configs.css"
-
-let mxn = html`
+import { brick as html } from "brick-element";
+import { weight, colors, txt_sizes, mixins } from "./css/configs.css";
+let mxn = html `
     <style>
         :host {
             contain: content; 
@@ -47,13 +46,11 @@ let mxn = html`
     </style>
     <slot></slot>
 `;
-
-export class titleX extends mxn(HTMLElement){};
-
-
+export class titleX extends mxn(HTMLElement) {
+}
+;
 // ---- subtitles ----//
-
-let submxn = html`
+let submxn = html `
     <style>
         :host {
             contain: content; 
@@ -89,5 +86,6 @@ let submxn = html`
     </style>
     <p><slot></slot></p>
 `;
-
-export class subtitleX extends submxn(HTMLElement){} ;
+export class subtitleX extends submxn(HTMLElement) {
+}
+;

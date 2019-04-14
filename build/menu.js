@@ -1,10 +1,8 @@
-import {brick as html, templateme, dfn} from "brick-element"
-import {normalize, shadow} from "./css/mixins.css"
-import {colors, radius} from "./css/configs.css"
-import "./button"
-
-
-let mxn = html` 
+import { brick as html } from "brick-element";
+import { normalize, shadow } from "./css/mixins.css";
+import { colors, radius } from "./css/configs.css";
+import "./button";
+let mxn = html ` 
     ${normalize}
     
     <style>
@@ -48,20 +46,9 @@ let mxn = html`
         <slot></slot>
     </div>
 `;
-
-export class menuX extends mxn(HTMLElement){
-    /* // if one wants to make it with ul - li
-    constructor(){
-        super();
-
-        console.log(this.children.length );
-        for(let i of this.children ){
-            this.ids.box.appendChild(i.cloneNode(true));
-        }
-    }*/
+export class menuX extends mxn(HTMLElement) {
 }
-
-let drop_mxn = html`
+let drop_mxn = html `
     ${normalize}
 
     <style>
@@ -105,27 +92,21 @@ let drop_mxn = html`
         <menu-x ${'#-menu'}> <slot name="menu"> </slot> </menu-x>
     
 `;
-
-export class dropX extends drop_mxn(HTMLElement){
-    ids:{[key:string]:any}
-    constructor(){
+export class dropX extends drop_mxn(HTMLElement) {
+    constructor() {
         super();
         this.ids.btn.onfocus = this.drop.bind(this);
-        this.ids.btn.onblur  = this.undrop.bind(this);
-
+        this.ids.btn.onblur = this.undrop.bind(this);
     }
-
-    drop(){
+    drop() {
         this.ids.menu.style.display = "block";
     }
-
-    undrop(){
+    undrop() {
         this.ids.menu.style.display = "none";
     }
-};
-
-
-let mxn_tag = html`
+}
+;
+let mxn_tag = html `
     <style>
         menu-x{
             margin-top: 0px;
@@ -147,12 +128,11 @@ let mxn_tag = html`
     </style>
 
 `;
-
-export class smartTag extends mxn_tag(dropX,{inherit:true}){
-    ids:{[key:string]:any}
-    constructor(){
+export class smartTag extends mxn_tag(dropX, { inherit: true }) {
+    constructor() {
         super();
         this.ids.btn.removeAttribute("white");
-        this.ids.btn.setAttribute("simple","");
+        this.ids.btn.setAttribute("simple", "");
     }
-};
+}
+;

@@ -1,33 +1,29 @@
-import {brick as html, templateme, dfn} from "brick-element"
-import {btn_css} from "./css/btn.css"
-import {host} from "./css/mixins.css"
-import {colors, radius} from "./css/configs.css"
-
-let mxn = html`
-${[host,btn_css]}
+import { brick as html, templateme } from "brick-element";
+import { btn_css } from "./css/btn.css";
+import { host } from "./css/mixins.css";
+import { colors, radius } from "./css/configs.css";
+let mxn = html `
+${[host, btn_css]}
 <button ${"#-btn"}> <slot>Click Me</slot></button>
 
 ${"|*disabled*|"}
 `;
-
-export class buttonX extends mxn(HTMLElement,{shadowRoot:{mode:'open',delegatesFocus:true}}){
-    ids:{[key:string]:any}
-    constructor(){
+export class buttonX extends mxn(HTMLElement, { shadowRoot: { mode: 'open', delegatesFocus: true } }) {
+    constructor() {
         super();
         this.ids.btn.onclick = this.onclick;
-        this.ids.btn.onblur  = this.onblur;
+        this.ids.btn.onblur = this.onblur;
         this.ids.btn.onfocus = this.onfocus;
     }
-
-    update_disabled(val:string){
-        if(val === "") this.ids.btn.setAttribute("disabled","");
-        else this.ids.btn.removeAttribute("disabled");
+    update_disabled(val) {
+        if (val === "")
+            this.ids.btn.setAttribute("disabled", "");
+        else
+            this.ids.btn.removeAttribute("disabled");
     }
-    
-};
-
-
-let del_tmpl = templateme`
+}
+;
+let del_tmpl = templateme `
     <style>
         button {
             background-color: ${colors.grey_darker};
@@ -44,12 +40,10 @@ let del_tmpl = templateme`
 
         }
 `;
-
-export class deleteX extends buttonX{
-    constructor(){
+export class deleteX extends buttonX {
+    constructor() {
         super();
         this.ids.btn.innerHTML = 'x';
         this.swr.appendChild(del_tmpl.content.cloneNode(true));
     }
 }
-

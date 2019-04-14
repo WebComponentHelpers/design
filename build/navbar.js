@@ -1,9 +1,6 @@
-import {brick as html, dfn} from "brick-element"
-import {colors} from './css/configs.css'
-import {normalize} from './css/mixins.css'
-
-
-let mxn = html`
+import { brick as html } from "brick-element";
+import { colors } from './css/configs.css';
+let mxn = html `
 
     <style>
         :host{
@@ -46,5 +43,5 @@ let mxn = html`
     </span>
     <slot id="right" name="right"></slot>
 `;
-
-export class navX extends mxn(HTMLElement){}
+export class navX extends mxn(HTMLElement) {
+}

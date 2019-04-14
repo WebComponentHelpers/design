@@ -1,8 +1,7 @@
-import {brick as html, dfn} from "brick-element"
-import {colors, radius} from './css/configs.css'
-import {normalize,focus_mxn} from './css/mixins.css'
- 
-let mxn = html`
+import { brick as html } from "brick-element";
+import { colors, radius } from './css/configs.css';
+import { normalize, focus_mxn } from './css/mixins.css';
+let mxn = html `
     ${normalize}
     <style>
         :host{
@@ -54,40 +53,37 @@ let mxn = html`
 
     ${'|*placeholder*|'}
 `;
-
-export class inputX extends mxn(HTMLElement){
-    ids:{[key:string]:any}
-    constructor(){
+export class inputX extends mxn(HTMLElement) {
+    constructor() {
         super();
-        this.ids.inpt.onfocus =  this.focuseme.bind(this);
+        this.ids.inpt.onfocus = this.focuseme.bind(this);
         this.ids.inpt.onblur = this.blurme.bind(this);
     }
-    
-    focuseme(){
-        this.setAttribute("focused","") ;
-        if(this.onfocus) this.onfocus();
+    focuseme() {
+        this.setAttribute("focused", "");
+        if (this.onfocus)
+            this.onfocus();
     }
-    blurme(){
+    blurme() {
         this.removeAttribute("focused");
-        if(this.onblur)this.onblur;
-        if(this.validate) this.validate();
+        if (this.onblur)
+            this.onblur;
+        if (this.validate)
+            this.validate();
     }
-        get value(){
-
-            // FIXME add escaping 
-            return this.ids.inpt.value ;   
-        }
-    
-        set value( val){
-            // FIXME add escaping 
-            this.ids.inpt.value = val;
+    get value() {
+        // FIXME add escaping 
+        return this.ids.inpt.value;
     }
-    update_placeholder( val:string){
+    set value(val) {
+        // FIXME add escaping 
+        this.ids.inpt.value = val;
+    }
+    update_placeholder(val) {
         this.ids.inpt.placeholder = val;
     }
 }
-
-let check = html`
+let check = html `
     ${normalize}
     <style>
         :host{
@@ -118,18 +114,13 @@ let check = html`
     <label for="chbox"><slot></slot></label>
     
 `;
-
-export class checkboxX extends check(HTMLElement){
-    ids:{[key:string]:any}
-
-    get value(){
-
+export class checkboxX extends check(HTMLElement) {
+    get value() {
         // FIXME add escaping 
-        return this.ids.inpt.checked ;   
+        return this.ids.inpt.checked;
     }
-
-    set value( val){
+    set value(val) {
         // FIXME add escaping 
         this.ids.inpt.checked = val;
-}
+    }
 }

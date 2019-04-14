@@ -1,17 +1,15 @@
-import {brick as html, dfn} from "brick-element"
-import {box_skeleton} from "./css/mixins.css"
-import {colors, weight} from "./css/configs.css"
-import "./titles"
-import "./button"
-
-let mxn = html`
+import { brick as html } from "brick-element";
+import { box_skeleton } from "./css/mixins.css";
+import { colors } from "./css/configs.css";
+import "./titles";
+import "./button";
+let mxn = html `
     ${box_skeleton}
     <slot></slot>
 `;
-
-export class boxX extends mxn(HTMLElement){}
-
-let mxn_mes = html`
+export class boxX extends mxn(HTMLElement) {
+}
+let mxn_mes = html `
     ${box_skeleton}
     <style>
         :host{
@@ -39,5 +37,5 @@ let mxn_mes = html`
     </div>
     <p> <slot name="content"> </slot> </p>
 `;
-
-export class messageX extends mxn_mes(HTMLElement){}
+export class messageX extends mxn_mes(HTMLElement) {
+}
