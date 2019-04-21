@@ -47,7 +47,7 @@ let mxn = html `
         }
     </style>
 
-    <div before> <slot name="before"> test </slot> </div>
+    <div before> <slot name="before"> </slot> </div>
     <input type="text" ${'#-inpt'} >
     <div after> <slot name="after"></slot> </div>
 
@@ -67,7 +67,7 @@ export class inputX extends mxn(HTMLElement) {
     blurme() {
         this.removeAttribute("focused");
         if (this.onblur)
-            this.onblur;
+            this.onblur();
         if (this.validate)
             this.validate();
     }

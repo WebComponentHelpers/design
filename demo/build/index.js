@@ -425,7 +425,7 @@ ${"|*disabled*|"}
         }
     </style>
 
-    <div before> <slot name="before"> test </slot> </div>
+    <div before> <slot name="before"> </slot> </div>
     <input type="text" ${"#-inpt"} >
     <div after> <slot name="after"></slot> </div>
 
@@ -502,4 +502,4 @@ ${"|*disabled*|"}
         <slot id="center" name="center"></slot>
     </span>
     <slot id="right" name="right"></slot>
-`;customElements.define("btn-x",k),l("delete-x",class extends k{constructor(){super(),this.ids.btn.innerHTML="x",this.swr.appendChild(z.content.cloneNode(!0))}}),l("title-x",class extends(E(HTMLElement)){}),l("subtitle-x",class extends(M(HTMLElement)){}),l("box-x",class extends(T(HTMLElement)){}),l("message-x",class extends(L(HTMLElement)){}),l("menu-x",class extends(_(HTMLElement)){}),l("drop-x",A),l("smart-tag",class extends(H(A,{inherit:!0})){constructor(){super(),this.ids.btn.removeAttribute("white"),this.ids.btn.setAttribute("simple","")}}),l("input-x",class extends(O(HTMLElement)){constructor(){super(),this.ids.inpt.onfocus=this.focuseme.bind(this),this.ids.inpt.onblur=this.blurme.bind(this)}focuseme(){this.setAttribute("focused",""),this.onfocus&&this.onfocus()}blurme(){this.removeAttribute("focused"),this.onblur&&this.onblur,this.validate&&this.validate()}get value(){return this.ids.inpt.value}set value(e){this.ids.inpt.value=e}update_placeholder(e){this.ids.inpt.placeholder=e}}),l("checkbox-x",class extends(P(HTMLElement)){get value(){return this.ids.inpt.checked}set value(e){this.ids.inpt.checked=e}}),l("nav-x",class extends(I(HTMLElement)){})}]);
+`;customElements.define("btn-x",k),l("delete-x",class extends k{constructor(){super(),this.ids.btn.innerHTML="x",this.swr.appendChild(z.content.cloneNode(!0))}}),l("title-x",class extends(E(HTMLElement)){}),l("subtitle-x",class extends(M(HTMLElement)){}),l("box-x",class extends(T(HTMLElement)){}),l("message-x",class extends(L(HTMLElement)){}),l("menu-x",class extends(_(HTMLElement)){}),l("drop-x",A),l("smart-tag",class extends(H(A,{inherit:!0})){constructor(){super(),this.ids.btn.removeAttribute("white"),this.ids.btn.setAttribute("simple","")}}),l("input-x",class extends(O(HTMLElement)){constructor(){super(),this.ids.inpt.onfocus=this.focuseme.bind(this),this.ids.inpt.onblur=this.blurme.bind(this)}focuseme(){this.setAttribute("focused",""),this.onfocus&&this.onfocus()}blurme(){this.removeAttribute("focused"),this.onblur&&this.onblur(),this.validate&&this.validate()}get value(){return this.ids.inpt.value}set value(e){this.ids.inpt.value=e}update_placeholder(e){this.ids.inpt.placeholder=e}}),l("checkbox-x",class extends(P(HTMLElement)){get value(){return this.ids.inpt.checked}set value(e){this.ids.inpt.checked=e}}),l("nav-x",class extends(I(HTMLElement)){})}]);
