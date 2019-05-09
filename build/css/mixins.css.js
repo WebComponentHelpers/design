@@ -3,7 +3,7 @@ import { templateme } from "brick-element";
 export let host = templateme `
     <style>
     :host{
-        contain: content; 
+        /*contain: content; */
         box-sizing : border-box;
         display: inline;
     }
@@ -12,7 +12,7 @@ export let host = templateme `
 export let normalize = templateme `
     <style>
         :host{
-            contain: content;
+            /*contain: content;*/
             box-sizing : border-box;
             display: inline;
         }

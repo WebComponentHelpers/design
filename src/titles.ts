@@ -12,7 +12,7 @@ let mxn = html`
             box-sizing : border-box;
 
             font-weight : ${weight.semibold};
-            color: ${colors.grey_darker};
+            color: ${colors.grey_dark};
             line-height : 1.125;
             font-size : ${txt_sizes.size_3}rem;
             word-break: break-word;
@@ -44,7 +44,7 @@ let mxn = html`
             color: ${colors.black};
             font-size: ${txt_sizes.size_2}rem;
         }
-    </style>
+        </style>
     <slot></slot>
 `;
 
@@ -62,6 +62,7 @@ let submxn = html`
         :host([bottom-margin]) > p {
             margin-bottom: 1.5rem;
         }
+        
         p {
             font-weight : ${weight.normal};
             color: ${colors.grey_dark};
@@ -80,6 +81,9 @@ let submxn = html`
         }
         :host([large]) > p {
             font-size : ${txt_sizes.size_2 * txt_sizes.subtitle_factor}rem;
+        }
+        :host([zero-margin]) > p {
+            margin: 0;
         }
         ::slotted(strong){
             font-weight : ${weight.semibold};

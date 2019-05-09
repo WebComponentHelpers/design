@@ -9,10 +9,11 @@ let mxn = html `
             border-style:solid;
             background-color:${colors.white};
             border-color:${colors.grey_lighter};
-            border-radius:${radius.large};
+            border-radius:var(--radius,${radius.large});
             display:inline-flex;
             flex-direction:row;
             z-index:0;
+            box-shadow:  var(--unfocused-box-shadow,none);
         }
         :host([focused=""]){
             ${focus_mxn}
@@ -21,7 +22,7 @@ let mxn = html `
             margin:0px;
             color:${colors.grey_darker};
             background-color:${colors.white};
-            border-radius:${radius.large};
+            border-radius:var(--radius,${radius.large});
             /*height:2.25em;*/
             padding:0.5em;
             border-style:none;
@@ -53,21 +54,23 @@ let mxn = html `
 
     ${'|*placeholder*|'}
 `;
+/**
+ * Input class that support to place item before and after the text,
+ * via slots "before", "after".
+ * @property value: reflects the value of the inner input field, can be
+ * used to get and set its value.
+ */
 export class inputX extends mxn(HTMLElement) {
     constructor() {
         super();
-        this.ids.inpt.onfocus = this.focuseme.bind(this);
-        this.ids.inpt.onblur = this.blurme.bind(this);
+        this.ids.inpt.onfocus = this._focuseme.bind(this);
+        this.ids.inpt.onblur = this._blurme.bind(this);
     }
-    focuseme() {
+    _focuseme() {
         this.setAttribute("focused", "");
-        if (this.onfocus)
-            this.onfocus();
     }
-    blurme() {
+    _blurme() {
         this.removeAttribute("focused");
-        if (this.onblur)
-            this.onblur();
         if (this.validate)
             this.validate();
     }

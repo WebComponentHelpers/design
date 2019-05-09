@@ -15,7 +15,7 @@ button {
   font-weight: 700;
   letter-spacing: .1rem;
 
-  padding: 0.8rem;
+  padding: var(--padding,0.8rem);
 
   background-color:  var(--bg-color, ${conf.colorA});
   border: 1px solid transparent;
@@ -24,6 +24,7 @@ button {
   border-radius: var(--radious, .4rem);
   color: var(--color,#fff);
   cursor: pointer;
+  box-shadow:  var(--unfocused-box-shadow,none);
 
   -moz-appearance: none;
   -webkit-appearance: none;

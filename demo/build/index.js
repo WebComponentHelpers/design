@@ -1,7 +1,7 @@
 !function(e){var t={};function o(r){if(t[r])return t[r].exports;var s=t[r]={i:r,l:!1,exports:{}};return e[r].call(s.exports,s,s.exports,o),s.l=!0,s.exports}o.m=e,o.c=t,o.d=function(e,t,r){o.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:r})},o.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},o.t=function(e,t){if(1&t&&(e=o(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var r=Object.create(null);if(o.r(r),Object.defineProperty(r,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var s in e)o.d(r,s,function(t){return e[t]}.bind(null,s));return r},o.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return o.d(t,"a",t),t},o.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},o.p="",o(o.s=0)}([function(e,t,o){"use strict";function r(e){throw console.log("LitRead does not accept the following ${ } as input in string literal:"),console.log(e),Error("Invalid input.")}function s(e,...t){let o;if(o={template:"",props:{},imports:[],IDs:[]},e.length<=t.length)throw Error("Improper parameter size.");if(1===e.length)return o.template=`${e[0]}`,o;let s="";return e.forEach((e,n)=>{if(s+=e,n===t.length)return;let i=t[n];if("string"==typeof i){let e=i;if(e.trim(),"#"===e[0]&&"-"===e[1])s+=` id="${e.substring(2)}" `,o.IDs.push(e.substring(2));else if("|*"===e.slice(0,2)&&"*|"===e.slice(-2)){let t=e.replace(/\s/g,"").slice(2,-2).split("|");for(let e of t)e.includes("-b")?o.props[e.replace(/\-b/g,"")]="bool":o.props[e]="string"}else s+=i}else if("object"==typeof i)if(Array.isArray(i))for(let e of i)"string"==typeof e?s+=" "+e:"object"==typeof e&&"tagName"in e&&"TEMPLATE"===e.tagName?o.imports.push(e):r(e);else"tagName"in i&&"TEMPLATE"===i.tagName?o.imports.push(i):r(i);else"number"==typeof i?s+=i.toString(10):r(i)}),o.template=s,o}function n(e,...t){let o=s(e,...t),r=document.createElement("template");return r.innerHTML=o.template,Object.defineProperty(r,"_props",o.props),Object.defineProperty(r,"_IDs",o.IDs),r}function i(e,...t){let o=s(e,...t),r=document.createElement("template");return r.innerHTML=o.template,o.imports.push(r),(e,t)=>(class extends e{static get observedAttributes(){let e=[];return super.observedAttributes&&(e=super.observedAttributes),e.concat(Object.keys(o.props))}constructor(){super(),this._props||(this._props={});for(let e in o.props)this._props[e]=o.props[e];let e=t&&t.shadowRoot?t.shadowRoot:{mode:"open",delegatesFocus:!1},r=t&&t.inherit?this.shadowRoot:this.attachShadow(e);for(let e of o.imports)r.appendChild(e.content.cloneNode(!0));this.ids||(this.ids={});for(let e of o.IDs)this.ids[e]=r.getElementById(e);this.shadowRoot.qs=this.shadowRoot.querySelector,this.swr=this.shadowRoot,t&&t.inherit||this.setProps()}setProps(){for(let e in o.props)Object.defineProperty(this,e,{set:t=>{this.setAttribute(e,t)},get:()=>this.getAttribute(e)})}attributeChangedCallback(e,t,o){(!(null!==o)||t!==o)&&this._props.hasOwnProperty(e)&&void 0!==this["update_"+e]&&this["update_"+e](o)}})}o.r(t);let l=customElements.define.bind(customElements),d=600,a="hsl(0, 0%, 21%)",c="hsl(0, 0%, 41%)",p="hsl(0, 0%, 86%)",b="hsl(0, 0%, 100%)",u="hsl(217, 71%,  53%)",h=2.5,m=2,f=.75,g="4px",x="6px",$=n`
     <style>
         :host{
-            contain: content;
+            /*contain: content;*/
             box-sizing : border-box;
             display: inline;
         }
@@ -37,7 +37,7 @@
 ${[n`
     <style>
     :host{
-        contain: content; 
+        /*contain: content; */
         box-sizing : border-box;
         display: inline;
     }
@@ -55,7 +55,7 @@ button {
   font-weight: 700;
   letter-spacing: .1rem;
 
-  padding: 0.8rem;
+  padding: var(--padding,0.8rem);
 
   background-color:  var(--bg-color, ${"#00d1b2"});
   border: 1px solid transparent;
@@ -64,6 +64,7 @@ button {
   border-radius: var(--radious, .4rem);
   color: var(--color,#fff);
   cursor: pointer;
+  box-shadow:  var(--unfocused-box-shadow,none);
 
   -moz-appearance: none;
   -webkit-appearance: none;
@@ -173,7 +174,7 @@ ${"|*disabled*|"}
             box-sizing : border-box;
 
             font-weight : ${d};
-            color: ${a};
+            color: ${c};
             line-height : 1.125;
             font-size : ${m}rem;
             word-break: break-word;
@@ -205,7 +206,7 @@ ${"|*disabled*|"}
             color: ${"hsl(0, 0%, 4%)"};
             font-size: ${h}rem;
         }
-    </style>
+        </style>
     <slot></slot>
 `;let M=i`
     <style>
@@ -216,6 +217,7 @@ ${"|*disabled*|"}
         :host([bottom-margin]) > p {
             margin-bottom: 1.5rem;
         }
+        
         p {
             font-weight : ${400};
             color: ${c};
@@ -235,6 +237,9 @@ ${"|*disabled*|"}
         :host([large]) > p {
             font-size : ${h*f}rem;
         }
+        :host([zero-margin]) > p {
+            margin: 0;
+        }
         ::slotted(strong){
             font-weight : ${d};
             color: ${c};
@@ -242,10 +247,10 @@ ${"|*disabled*|"}
         }
     </style>
     <p><slot></slot></p>
-`;let T=i`
+`;let _=i`
     ${v}
     <slot></slot>
-`;let L=i`
+`;let T=i`
     ${v}
     <style>
         :host{
@@ -272,7 +277,7 @@ ${"|*disabled*|"}
         <delete-x></delete-x>
     </div>
     <p> <slot name="content"> </slot> </p>
-`;let _=i` 
+`;let L=i` 
     ${$}
     
     <style>
@@ -387,10 +392,11 @@ ${"|*disabled*|"}
             border-style:solid;
             background-color:${b};
             border-color:${p};
-            border-radius:${x};
+            border-radius:var(--radius,${x});
             display:inline-flex;
             flex-direction:row;
             z-index:0;
+            box-shadow:  var(--unfocused-box-shadow,none);
         }
         :host([focused=""]){
             ${y}
@@ -399,7 +405,7 @@ ${"|*disabled*|"}
             margin:0px;
             color:${a};
             background-color:${b};
-            border-radius:${x};
+            border-radius:var(--radius,${x});
             /*height:2.25em;*/
             padding:0.5em;
             border-style:none;
@@ -502,4 +508,4 @@ ${"|*disabled*|"}
         <slot id="center" name="center"></slot>
     </span>
     <slot id="right" name="right"></slot>
-`;customElements.define("btn-x",k),l("delete-x",class extends k{constructor(){super(),this.ids.btn.innerHTML="x",this.swr.appendChild(z.content.cloneNode(!0))}}),l("title-x",class extends(E(HTMLElement)){}),l("subtitle-x",class extends(M(HTMLElement)){}),l("box-x",class extends(T(HTMLElement)){}),l("message-x",class extends(L(HTMLElement)){}),l("menu-x",class extends(_(HTMLElement)){}),l("drop-x",A),l("smart-tag",class extends(H(A,{inherit:!0})){constructor(){super(),this.ids.btn.removeAttribute("white"),this.ids.btn.setAttribute("simple","")}}),l("input-x",class extends(O(HTMLElement)){constructor(){super(),this.ids.inpt.onfocus=this.focuseme.bind(this),this.ids.inpt.onblur=this.blurme.bind(this)}focuseme(){this.setAttribute("focused",""),this.onfocus&&this.onfocus()}blurme(){this.removeAttribute("focused"),this.onblur&&this.onblur(),this.validate&&this.validate()}get value(){return this.ids.inpt.value}set value(e){this.ids.inpt.value=e}update_placeholder(e){this.ids.inpt.placeholder=e}}),l("checkbox-x",class extends(P(HTMLElement)){get value(){return this.ids.inpt.checked}set value(e){this.ids.inpt.checked=e}}),l("nav-x",class extends(I(HTMLElement)){})}]);
+`;customElements.define("btn-x",k),l("delete-x",class extends k{constructor(){super(),this.ids.btn.innerHTML="x",this.swr.appendChild(z.content.cloneNode(!0))}}),l("title-x",class extends(E(HTMLElement)){}),l("subtitle-x",class extends(M(HTMLElement)){}),l("box-x",class extends(_(HTMLElement)){}),l("message-x",class extends(T(HTMLElement)){}),l("menu-x",class extends(L(HTMLElement)){}),l("drop-x",A),l("smart-tag",class extends(H(A,{inherit:!0})){constructor(){super(),this.ids.btn.removeAttribute("white"),this.ids.btn.setAttribute("simple","")}}),l("input-x",class extends(O(HTMLElement)){constructor(){super(),this.ids.inpt.onfocus=this._focuseme.bind(this),this.ids.inpt.onblur=this._blurme.bind(this)}_focuseme(){this.setAttribute("focused","")}_blurme(){this.removeAttribute("focused"),this.validate&&this.validate()}get value(){return this.ids.inpt.value}set value(e){this.ids.inpt.value=e}update_placeholder(e){this.ids.inpt.placeholder=e}}),l("checkbox-x",class extends(P(HTMLElement)){get value(){return this.ids.inpt.checked}set value(e){this.ids.inpt.checked=e}}),l("nav-x",class extends(I(HTMLElement)){})}]);
