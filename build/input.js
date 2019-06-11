@@ -62,7 +62,7 @@ let mxn = html `
  * @property value: reflects the value of the inner input field, can be
  * used to get and set its value.
  */
-export class inputX extends mxn(HTMLElement, { mode: 'open', delegatesFocus: true }) {
+export class inputX extends mxn(HTMLElement) {
     constructor() {
         super();
         this.ids.inpt.onfocus = this._focuseme.bind(this);
