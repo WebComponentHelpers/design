@@ -16,9 +16,11 @@ let mxn = html`
             z-index:0;
             box-shadow:  var(--unfocused-box-shadow,none);
         }
+      
         :host([focused=""]){
             ${focus_mxn}
         }
+      
         input{
             margin:0px;
             color:${colors.grey_darker};
@@ -49,9 +51,9 @@ let mxn = html`
         }
     </style>
 
-    <div before> <slot name="before"> </slot> </div>
+    <div ${'#-before'} before> <slot name="before"> </slot> </div>
     <input type="text" ${'#-inpt'} >
-    <div after> <slot name="after"></slot> </div>
+    <div ${'#-after'} after> <slot name="after"></slot> </div>
 
     ${'|*placeholder*|'}
 `;
@@ -64,7 +66,9 @@ let mxn = html`
 export class inputX extends mxn(HTMLElement){
     ids:{
         [key:string]:any,
-        inpt:HTMLInputElement
+        inpt:HTMLInputElement,
+        before:HTMLDivElement,
+        after:HTMLDivElement
     }
     constructor(){
         super();

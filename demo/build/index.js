@@ -398,9 +398,11 @@ ${"|*disabled*|"}
             z-index:0;
             box-shadow:  var(--unfocused-box-shadow,none);
         }
+      
         :host([focused=""]){
             ${y}
         }
+      
         input{
             margin:0px;
             color:${a};
@@ -431,9 +433,9 @@ ${"|*disabled*|"}
         }
     </style>
 
-    <div before> <slot name="before"> </slot> </div>
+    <div ${"#-before"} before> <slot name="before"> </slot> </div>
     <input type="text" ${"#-inpt"} >
-    <div after> <slot name="after"></slot> </div>
+    <div ${"#-after"} after> <slot name="after"></slot> </div>
 
     ${"|*placeholder*|"}
 `;let P=i`
@@ -508,4 +510,4 @@ ${"|*disabled*|"}
         <slot id="center" name="center"></slot>
     </span>
     <slot id="right" name="right"></slot>
-`;customElements.define("btn-x",k),l("delete-x",class extends k{constructor(){super(),this.ids.btn.innerHTML="x",this.swr.appendChild(z.content.cloneNode(!0))}}),l("title-x",class extends(E(HTMLElement)){}),l("subtitle-x",class extends(M(HTMLElement)){}),l("box-x",class extends(_(HTMLElement)){}),l("message-x",class extends(T(HTMLElement)){}),l("menu-x",class extends(L(HTMLElement)){}),l("drop-x",A),l("smart-tag",class extends(H(A,{inherit:!0})){constructor(){super(),this.ids.btn.removeAttribute("white"),this.ids.btn.setAttribute("simple","")}}),l("input-x",class extends(O(HTMLElement)){constructor(){super(),this.ids.inpt.onfocus=this._focuseme.bind(this),this.ids.inpt.onblur=this._blurme.bind(this)}_focuseme(){this.setAttribute("focused","")}_blurme(){this.removeAttribute("focused"),this.validate&&this.validate()}get value(){return this.ids.inpt.value}set value(e){this.ids.inpt.value=e}update_placeholder(e){this.ids.inpt.placeholder=e}}),l("checkbox-x",class extends(P(HTMLElement)){get value(){return this.ids.inpt.checked}set value(e){this.ids.inpt.checked=e}}),l("nav-x",class extends(I(HTMLElement)){})}]);
+`;customElements.define("btn-x",k),l("delete-x",class extends k{constructor(){super(),this.ids.btn.innerHTML="x",this.swr.appendChild(z.content.cloneNode(!0))}}),l("title-x",class extends(E(HTMLElement)){}),l("subtitle-x",class extends(M(HTMLElement)){}),l("box-x",class extends(_(HTMLElement)){}),l("message-x",class extends(T(HTMLElement)){}),l("menu-x",class extends(L(HTMLElement)){}),l("drop-x",A),l("smart-tag",class extends(H(A,{inherit:!0})){constructor(){super(),this.ids.btn.removeAttribute("white"),this.ids.btn.setAttribute("simple","")}}),l("input-x",class extends(O(HTMLElement,{mode:"open",delegatesFocus:!0})){constructor(){super(),this.ids.inpt.onfocus=this._focuseme.bind(this),this.ids.inpt.onblur=this._blurme.bind(this)}_focuseme(){this.setAttribute("focused","")}_blurme(){this.removeAttribute("focused"),this.validate&&this.validate()}get value(){return this.ids.inpt.value}set value(e){this.ids.inpt.value=e}update_placeholder(e){this.ids.inpt.placeholder=e}}),l("checkbox-x",class extends(P(HTMLElement)){get value(){return this.ids.inpt.checked}set value(e){this.ids.inpt.checked=e}}),l("nav-x",class extends(I(HTMLElement)){})}]);

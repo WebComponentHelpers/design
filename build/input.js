@@ -15,9 +15,11 @@ let mxn = html `
             z-index:0;
             box-shadow:  var(--unfocused-box-shadow,none);
         }
+      
         :host([focused=""]){
             ${focus_mxn}
         }
+      
         input{
             margin:0px;
             color:${colors.grey_darker};
@@ -48,9 +50,9 @@ let mxn = html `
         }
     </style>
 
-    <div before> <slot name="before"> </slot> </div>
+    <div ${'#-before'} before> <slot name="before"> </slot> </div>
     <input type="text" ${'#-inpt'} >
-    <div after> <slot name="after"></slot> </div>
+    <div ${'#-after'} after> <slot name="after"></slot> </div>
 
     ${'|*placeholder*|'}
 `;
@@ -60,7 +62,7 @@ let mxn = html `
  * @property value: reflects the value of the inner input field, can be
  * used to get and set its value.
  */
-export class inputX extends mxn(HTMLElement) {
+export class inputX extends mxn(HTMLElement, { mode: 'open', delegatesFocus: true }) {
     constructor() {
         super();
         this.ids.inpt.onfocus = this._focuseme.bind(this);
