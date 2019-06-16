@@ -1,4 +1,4 @@
-!function(e){var t={};function o(r){if(t[r])return t[r].exports;var s=t[r]={i:r,l:!1,exports:{}};return e[r].call(s.exports,s,s.exports,o),s.l=!0,s.exports}o.m=e,o.c=t,o.d=function(e,t,r){o.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:r})},o.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},o.t=function(e,t){if(1&t&&(e=o(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var r=Object.create(null);if(o.r(r),Object.defineProperty(r,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var s in e)o.d(r,s,function(t){return e[t]}.bind(null,s));return r},o.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return o.d(t,"a",t),t},o.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},o.p="",o(o.s=0)}([function(e,t,o){"use strict";function r(e){throw console.log("LitRead does not accept the following ${ } as input in string literal:"),console.log(e),Error("Invalid input.")}function s(e,...t){let o;if(o={template:"",props:{},imports:[],IDs:[]},e.length<=t.length)throw Error("Improper parameter size.");if(1===e.length)return o.template=`${e[0]}`,o;let s="";return e.forEach((e,n)=>{if(s+=e,n===t.length)return;let i=t[n];if("string"==typeof i){let e=i;if(e.trim(),"#"===e[0]&&"-"===e[1])s+=` id="${e.substring(2)}" `,o.IDs.push(e.substring(2));else if("|*"===e.slice(0,2)&&"*|"===e.slice(-2)){let t=e.replace(/\s/g,"").slice(2,-2).split("|");for(let e of t)e.includes("-b")?o.props[e.replace(/\-b/g,"")]="bool":o.props[e]="string"}else s+=i}else if("object"==typeof i)if(Array.isArray(i))for(let e of i)"string"==typeof e?s+=" "+e:"object"==typeof e&&"tagName"in e&&"TEMPLATE"===e.tagName?o.imports.push(e):r(e);else"tagName"in i&&"TEMPLATE"===i.tagName?o.imports.push(i):r(i);else"number"==typeof i?s+=i.toString(10):r(i)}),o.template=s,o}function n(e,...t){let o=s(e,...t),r=document.createElement("template");return r.innerHTML=o.template,Object.defineProperty(r,"_props",o.props),Object.defineProperty(r,"_IDs",o.IDs),r}function i(e,...t){let o=s(e,...t),r=document.createElement("template");return r.innerHTML=o.template,o.imports.push(r),(e,t)=>(class extends e{static get observedAttributes(){let e=[];return super.observedAttributes&&(e=super.observedAttributes),e.concat(Object.keys(o.props))}constructor(){super(),this._props||(this._props={});for(let e in o.props)this._props[e]=o.props[e];let e=t&&t.shadowRoot?t.shadowRoot:{mode:"open",delegatesFocus:!1},r=t&&t.inherit?this.shadowRoot:this.attachShadow(e);for(let e of o.imports)r.appendChild(e.content.cloneNode(!0));this.ids||(this.ids={});for(let e of o.IDs)this.ids[e]=r.getElementById(e);this.shadowRoot.qs=this.shadowRoot.querySelector,this.swr=this.shadowRoot,t&&t.inherit||this.setProps()}setProps(){for(let e in o.props)Object.defineProperty(this,e,{set:t=>{this.setAttribute(e,t)},get:()=>this.getAttribute(e)})}attributeChangedCallback(e,t,o){(!(null!==o)||t!==o)&&this._props.hasOwnProperty(e)&&void 0!==this["update_"+e]&&this["update_"+e](o)}})}o.r(t);let l=customElements.define.bind(customElements),d=600,a="hsl(0, 0%, 21%)",c="hsl(0, 0%, 41%)",p="hsl(0, 0%, 86%)",b="hsl(0, 0%, 100%)",u="hsl(217, 71%,  53%)",h=2.5,m=2,f=.75,g="4px",x="6px",$=n`
+!function(e){var t={};function o(r){if(t[r])return t[r].exports;var s=t[r]={i:r,l:!1,exports:{}};return e[r].call(s.exports,s,s.exports,o),s.l=!0,s.exports}o.m=e,o.c=t,o.d=function(e,t,r){o.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:r})},o.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},o.t=function(e,t){if(1&t&&(e=o(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var r=Object.create(null);if(o.r(r),Object.defineProperty(r,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var s in e)o.d(r,s,function(t){return e[t]}.bind(null,s));return r},o.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return o.d(t,"a",t),t},o.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},o.p="",o(o.s=0)}([function(e,t,o){"use strict";function r(e){throw console.log("LitRead does not accept the following ${ } as input in string literal:"),console.log(e),Error("Invalid input.")}function s(e,...t){let o;if(o={template:"",props:{},imports:[],IDs:[]},e.length<=t.length)throw Error("Improper parameter size.");if(1===e.length)return o.template=`${e[0]}`,o;let s="";return e.forEach((e,n)=>{if(s+=e,n===t.length)return;let i=t[n];if("string"==typeof i){let e=i;if(e.trim(),"#"===e[0]&&"-"===e[1])s+=` id="${e.substring(2)}" `,o.IDs.push(e.substring(2));else if("|*"===e.slice(0,2)&&"*|"===e.slice(-2)){let t=e.replace(/\s/g,"").slice(2,-2).split("|");for(let e of t)e.includes("-b")?o.props[e.replace(/\-b/g,"")]="bool":o.props[e]="string"}else s+=i}else if("object"==typeof i)if(Array.isArray(i))for(let e of i)"string"==typeof e?s+=" "+e:"object"==typeof e&&"tagName"in e&&"TEMPLATE"===e.tagName?o.imports.push(e):r(e);else"tagName"in i&&"TEMPLATE"===i.tagName?o.imports.push(i):r(i);else"number"==typeof i?s+=i.toString(10):r(i)}),o.template=s,o}function n(e,...t){let o=s(e,...t),r=document.createElement("template");return r.innerHTML=o.template,Object.defineProperty(r,"_props",o.props),Object.defineProperty(r,"_IDs",o.IDs),r}function i(e,...t){let o=s(e,...t),r=document.createElement("template");return r.innerHTML=o.template,o.imports.push(r),(e,t)=>(class extends e{static get observedAttributes(){let e=[];return super.observedAttributes&&(e=super.observedAttributes),e.concat(Object.keys(o.props))}constructor(){super(),this._props||(this._props={});for(let e in o.props)this._props[e]=o.props[e];let e=t&&t.shadowRoot?t.shadowRoot:{mode:"open",delegatesFocus:!1},r=t&&t.inherit?this.shadowRoot:this.attachShadow(e);for(let e of o.imports)r.appendChild(e.content.cloneNode(!0));this.ids||(this.ids={});for(let e of o.IDs)this.ids[e]=r.getElementById(e);this.shadowRoot.qs=this.shadowRoot.querySelector,this.swr=this.shadowRoot,t&&t.inherit||this.setProps()}setProps(){for(let e in o.props)Object.defineProperty(this,e,{set:t=>{this.setAttribute(e,t)},get:()=>this.getAttribute(e)})}attributeChangedCallback(e,t,o){(!(null!==o)||t!==o)&&this._props.hasOwnProperty(e)&&void 0!==this["update_"+e]&&this["update_"+e](o)}})}o.r(t);let l=customElements.define.bind(customElements),d=600,a="hsl(0, 0%, 21%)",c="hsl(0, 0%, 41%)",b="hsl(0, 0%, 86%)",u="hsl(0, 0%, 100%)",p="hsl(217, 71%,  53%)",h=2.5,m=2,f=.75,g="4px",x="6px",$=n`
     <style>
         :host{
             /*contain: content;*/
@@ -26,14 +26,14 @@
         margin : 0;
         box-sizing : border-box;
 
-        background-color: ${b};
+        background-color: ${u};
         border-radius: ${x};
         box-shadow: 0 2px 3px black;
         display: block;
         padding: 1.25rem;
     }
     </style>
-`,y=`\n    border-color: var(--focus-border-color,${u});\n    box-shadow : 0 0 0 var(--focus-shadow,0.175em) rgba(50, 115, 220, 0.25);\n    color : var(--focus-color,${u})\n`,w=i`
+`,y=`\n    border-color: var(--focused-border-color,${p});\n    box-shadow : var(--focused-box-shadow, 0 0 0 0.175em rgba(50, 115, 220, 0.25));\n    color : var(--focus-color,${p});\n`,w=`\n    border-width:1px;\n    border-style:solid;\n    background-color:${u};\n    border-color:${b};\n    border-radius:var(--radius,${x});\n    z-index:0;\n    box-shadow:  var(--unfocused-box-shadow,none);\n    padding : var(--padding-box,0.5em);\n`,k=i`
 ${[n`
     <style>
     :host{
@@ -85,19 +85,19 @@ button {
 }
 
 :host([white]) > button{
-  background-color: ${b};
+  background-color: ${u};
   color: ${c};
-  border-color: ${p};
+  border-color: ${b};
   outline: 0;
 }
 :host(:not([simple])[white]:hover) > button {
   border-color: ${c};
-  background-color: ${b};
+  background-color: ${u};
   color: ${c};
 }
 :host(:not([simple])[white]:active) > button {
   color: ${a};
-  background-color: ${b};
+  background-color: ${u};
   border-color: ${c};
 
 }
@@ -147,11 +147,11 @@ button:focus {outline:none;}
 <button ${"#-btn"}> <slot>Click Me</slot></button>
 
 ${"|*disabled*|"}
-`;class k extends(w(HTMLElement,{shadowRoot:{mode:"open",delegatesFocus:!0}})){constructor(){super(),this.ids.btn.onclick=this.onclick,this.ids.btn.onblur=this.onblur,this.ids.btn.onfocus=this.onfocus}update_disabled(e){""===e?this.ids.btn.setAttribute("disabled",""):this.ids.btn.removeAttribute("disabled")}}let z=n`
+`;class E extends(k(HTMLElement,{shadowRoot:{mode:"open",delegatesFocus:!0}})){constructor(){super(),this.ids.btn.onclick=this.onclick,this.ids.btn.onblur=this.onblur,this.ids.btn.onfocus=this.onfocus}update_disabled(e){""===e?this.ids.btn.setAttribute("disabled",""):this.ids.btn.removeAttribute("disabled")}}let z=n`
     <style>
         button {
             background-color: ${a};
-            color : ${p};
+            color : ${b};
             border-radius: ${g};
             width : 25px;
             height: 25px;
@@ -163,7 +163,7 @@ ${"|*disabled*|"}
           
 
         }
-`;let E=i`
+`;let L=i`
     <style>
         :host {
             contain: content; 
@@ -247,10 +247,10 @@ ${"|*disabled*|"}
         }
     </style>
     <p><slot></slot></p>
-`;let _=i`
+`;let T=i`
     ${v}
     <slot></slot>
-`;let T=i`
+`;let _=i`
     ${v}
     <style>
         :host{
@@ -277,15 +277,36 @@ ${"|*disabled*|"}
         <delete-x></delete-x>
     </div>
     <p> <slot name="content"> </slot> </p>
-`;let L=i` 
+`;let A=i`
+    ${$}
+    <style>
+        :host{
+            ${w}
+            display: inline-flex;
+            flex-direction: row;
+        }
+        ::slotted(*):focus {
+            outline:none;
+            /*border-style:none;*/
+            border:2px solid blue;
+        }
+
+        :host([focused]){
+            ${y}
+            
+        }
+      
+    </style>
+    <slot></slot>
+`;let j=i` 
     ${$}
     
     <style>
         :host{
             display:block;
-            background-color: var(--bg-color,${b});
+            background-color: var(--bg-color,${u});
             border: var(--border,1px solid);
-            border-color: var(--border-color, ${p});
+            border-color: var(--border-color, ${b});
             border-radius: var(--border-radius, ${g});
             min-width: 10rem;
             ${"\n    box-shadow: 0 2px 3px black;\n"}
@@ -307,11 +328,11 @@ ${"|*disabled*|"}
           white-space: nowrap;
         }
         ::slotted(a:hover){
-            background-color: ${u};
-            color: ${b};
+            background-color: ${p};
+            color: ${u};
         }
         ::slotted(a:active){
-            background-color: ${u};
+            background-color: ${p};
             color: ${"hsl(171, 100%, 41%)"};
         }
         
@@ -320,7 +341,7 @@ ${"|*disabled*|"}
     <div ${"#-box"}>
         <slot></slot>
     </div>
-`;let j=i`
+`;let H=i`
     ${$}
 
     <style>
@@ -363,20 +384,20 @@ ${"|*disabled*|"}
         <btn-x white focus ${"#-btn"}> <slot> I droppo  ;)</slot></btn-x>
         <menu-x ${"#-menu"}> <slot name="menu"> </slot> </menu-x>
     
-`;class A extends(j(HTMLElement)){constructor(){super(),this.ids.btn.onfocus=this.drop.bind(this),this.ids.btn.onblur=this.undrop.bind(this)}drop(){this.ids.menu.style.display="block"}undrop(){this.ids.menu.style.display="none"}}let H=i`
+`;class O extends(H(HTMLElement)){constructor(){super(),this.ids.btn.onfocus=this.drop.bind(this),this.ids.btn.onblur=this.undrop.bind(this)}drop(){this.ids.menu.style.display="block"}undrop(){this.ids.menu.style.display="none"}}let P=i`
     <style>
         menu-x{
             margin-top: 0px;
-            --bg-color:${b};
+            --bg-color:${u};
             --border:0px;
             --border-radius:0px ${g} ${g} ${g} ; 
         }
         btn-x {
-            --bg-color:${u};
+            --bg-color:${p};
             --radious: ${g} ${g} 0 0;
             --color: ${a};
             --focus-border-color:${c};
-            --focus-color:${b};
+            --focus-color:${u};
             --focus-shadow:0;
             --border: 0px;
             --border-bottom: 8px solid transparent;
@@ -384,19 +405,14 @@ ${"|*disabled*|"}
         }
     </style>
 
-`;let O=i`
+`;let I=i`
     ${$}
     <style>
         :host{
-            border-width:1px;
-            border-style:solid;
-            background-color:${b};
-            border-color:${p};
-            border-radius:var(--radius,${x});
+            --padding-box: 0px;
+            ${w} 
             display:inline-flex;
             flex-direction:row;
-            z-index:0;
-            box-shadow:  var(--unfocused-box-shadow,none);
         }
       
         :host([focused=""]){
@@ -406,7 +422,7 @@ ${"|*disabled*|"}
         input{
             margin:0px;
             color:${a};
-            background-color:${b};
+            background-color:${u};
             border-radius:var(--radius,${x});
             /*height:2.25em;*/
             padding:0.5em;
@@ -438,7 +454,7 @@ ${"|*disabled*|"}
     <div ${"#-after"} after> <slot name="after"></slot> </div>
 
     ${"|*placeholder*|"}
-`;let P=i`
+`;let R=i`
     ${$}
     <style>
         :host{
@@ -468,7 +484,7 @@ ${"|*disabled*|"}
     <input type="checkbox" name="chbox" ${"#-inpt"}>
     <label for="chbox"><slot></slot></label>
     
-`;let I=i`
+`;let S=i`
 
     <style>
         :host{
@@ -476,7 +492,7 @@ ${"|*disabled*|"}
             flex-direction:row;
             width:100%;
             justify-content:space-between;
-            background-color: ${u};
+            background-color: ${p};
             /*padding: 0.5rem;*/
             align-items:center;
             padding-left:0.5rem;
@@ -510,4 +526,4 @@ ${"|*disabled*|"}
         <slot id="center" name="center"></slot>
     </span>
     <slot id="right" name="right"></slot>
-`;customElements.define("btn-x",k),l("delete-x",class extends k{constructor(){super(),this.ids.btn.innerHTML="x",this.swr.appendChild(z.content.cloneNode(!0))}}),l("title-x",class extends(E(HTMLElement)){}),l("subtitle-x",class extends(M(HTMLElement)){}),l("box-x",class extends(_(HTMLElement)){}),l("message-x",class extends(T(HTMLElement)){}),l("menu-x",class extends(L(HTMLElement)){}),l("drop-x",A),l("smart-tag",class extends(H(A,{inherit:!0})){constructor(){super(),this.ids.btn.removeAttribute("white"),this.ids.btn.setAttribute("simple","")}}),l("input-x",class extends(O(HTMLElement)){constructor(){super(),this.ids.inpt.onfocus=this._focuseme.bind(this),this.ids.inpt.onblur=this._blurme.bind(this)}_focuseme(){this.setAttribute("focused","")}_blurme(){this.removeAttribute("focused"),this.validate&&this.validate()}get value(){return this.ids.inpt.value}set value(e){this.ids.inpt.value=e}update_placeholder(e){this.ids.inpt.placeholder=e}}),l("checkbox-x",class extends(P(HTMLElement)){get value(){return this.ids.inpt.checked}set value(e){this.ids.inpt.checked=e}}),l("nav-x",class extends(I(HTMLElement)){})}]);
+`;customElements.define("btn-x",E),l("delete-x",class extends E{constructor(){super(),this.ids.btn.innerHTML="x",this.swr.appendChild(z.content.cloneNode(!0))}}),l("title-x",class extends(L(HTMLElement)){}),l("subtitle-x",class extends(M(HTMLElement)){}),l("box-x",class extends(T(HTMLElement)){}),l("focus-box",class extends(A(HTMLElement,{shadowRoot:{mode:"open",delegatesFocus:!1}})){connectedCallback(){for(var e of(this.addEventListener("focus",this.foc),this.addEventListener("blur",this.blu),this.childNodes))e.addEventListener("focus",this.foc.bind(this)),e.addEventListener("blur",this.blu.bind(this))}foc(){this.setAttribute("focused","")}blu(){this.removeAttribute("focused")}}),l("message-x",class extends(_(HTMLElement)){}),l("menu-x",class extends(j(HTMLElement)){}),l("drop-x",O),l("smart-tag",class extends(P(O,{inherit:!0})){constructor(){super(),this.ids.btn.removeAttribute("white"),this.ids.btn.setAttribute("simple","")}}),l("input-x",class extends(I(HTMLElement)){constructor(){super(),this.ids.inpt.onfocus=this._focuseme.bind(this),this.ids.inpt.onblur=this._blurme.bind(this)}_focuseme(){this.setAttribute("focused","")}_blurme(){this.removeAttribute("focused"),this.validate&&this.validate()}get value(){return this.ids.inpt.value}set value(e){this.ids.inpt.value=e}update_placeholder(e){this.ids.inpt.placeholder=e}}),l("checkbox-x",class extends(R(HTMLElement)){get value(){return this.ids.inpt.checked}set value(e){this.ids.inpt.checked=e}}),l("nav-x",class extends(S(HTMLElement)){})}]);

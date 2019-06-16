@@ -47,10 +47,20 @@ export let box_skeleton = templateme `
     </style>
 `;
 export let focus_mxn = `
-    border-color: var(--focus-border-color,${conf.colors.blue});
-    box-shadow : 0 0 0 var(--focus-shadow,0.175em) rgba(50, 115, 220, 0.25);
-    color : var(--focus-color,${conf.colors.blue})
+    border-color: var(--focused-border-color,${conf.colors.blue});
+    box-shadow : var(--focused-box-shadow, 0 0 0 0.175em rgba(50, 115, 220, 0.25));
+    color : var(--focus-color,${conf.colors.blue});
 `;
 export let shadow = `
     box-shadow: 0 2px 3px black;
+`;
+export let light_box = `
+    border-width:1px;
+    border-style:solid;
+    background-color:${conf.colors.white};
+    border-color:${conf.colors.grey_lighter};
+    border-radius:var(--radius,${conf.radius.large});
+    z-index:0;
+    box-shadow:  var(--unfocused-box-shadow,none);
+    padding : var(--padding-box,0.5em);
 `;

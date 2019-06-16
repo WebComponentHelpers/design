@@ -1,5 +1,5 @@
 import { brick as html } from "brick-element";
-import { box_skeleton } from "./css/mixins.css";
+import { box_skeleton, light_box, normalize, focus_mxn } from "./css/mixins.css";
 import { colors } from "./css/configs.css";
 import "./titles";
 import "./button";
@@ -38,4 +38,42 @@ let mxn_mes = html `
     <p> <slot name="content"> </slot> </p>
 `;
 export class messageX extends mxn_mes(HTMLElement) {
+}
+let mxn_fbox = html `
+    ${normalize}
+    <style>
+        :host{
+            ${light_box}
+            display: inline-flex;
+            flex-direction: row;
+        }
+        ::slotted(*):focus {
+            outline:none;
+            /*border-style:none;*/
+            border:2px solid blue;
+        }
+
+        :host([focused]){
+            ${focus_mxn}
+            
+        }
+      
+    </style>
+    <slot></slot>
+`;
+export class focusBox extends mxn_fbox(HTMLElement, { shadowRoot: { mode: 'open', delegatesFocus: false } }) {
+    connectedCallback() {
+        this.addEventListener("focus", this.foc);
+        this.addEventListener("blur", this.blu);
+        for (var node of this.childNodes) {
+            node.addEventListener("focus", this.foc.bind(this));
+            node.addEventListener("blur", this.blu.bind(this));
+        }
+    }
+    foc() {
+        this.setAttribute("focused", "");
+    }
+    blu() {
+        this.removeAttribute("focused");
+    }
 }

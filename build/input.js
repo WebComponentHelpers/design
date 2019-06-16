@@ -1,19 +1,14 @@
 import { brick as html } from "brick-element";
 import { colors, radius } from './css/configs.css';
-import { normalize, focus_mxn } from './css/mixins.css';
+import { normalize, focus_mxn, light_box } from './css/mixins.css';
 let mxn = html `
     ${normalize}
     <style>
         :host{
-            border-width:1px;
-            border-style:solid;
-            background-color:${colors.white};
-            border-color:${colors.grey_lighter};
-            border-radius:var(--radius,${radius.large});
+            --padding-box: 0px;
+            ${light_box} 
             display:inline-flex;
             flex-direction:row;
-            z-index:0;
-            box-shadow:  var(--unfocused-box-shadow,none);
         }
       
         :host([focused=""]){

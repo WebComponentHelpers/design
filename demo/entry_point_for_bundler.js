@@ -10,6 +10,7 @@ dfn("subtitle-x", t.subtitleX);
 
 import * as bx  from '../build/box'
 dfn('box-x',bx.boxX);
+dfn('focus-box',bx.focusBox);
 dfn('message-x',bx.messageX);
 
 import * as m from '../build/menu'
