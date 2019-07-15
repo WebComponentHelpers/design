@@ -25,7 +25,9 @@ let mxn = html `
         :host([top-margin]) {
             margin-top : 1rem;
         }
-
+        :host([smallest]){
+            font-size : ${txt_sizes.size_6}rem;
+        }
         :host([small]) {
             font-size : ${txt_sizes.size_5}rem;
         }
@@ -69,9 +71,13 @@ let submxn = html `
             margin-top : 1rem;
             margin-bottom : 0rem;
         }
-    
+
+        
+        :host([smallest]) > p {
+            font-size : ${txt_sizes.size_6 * txt_sizes.subtitle_factor}rem;
+        }
         :host([small]) > p {
-            font-size : ${txt_sizes.size_4 * txt_sizes.subtitle_factor}rem;
+            font-size : ${txt_sizes.size_5 * txt_sizes.subtitle_factor}rem;
         }
         :host([medium]) > p {
             font-size : ${txt_sizes.size_3 * txt_sizes.subtitle_factor}rem;

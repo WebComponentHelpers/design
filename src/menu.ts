@@ -15,7 +15,7 @@ let mxn = html`
             border-color: var(--border-color, ${colors.grey_lighter});
             border-radius: var(--border-radius, ${radius.medium});
             min-width: 10rem;
-            ${shadow}
+            box-shadow: ${shadow.light};
         }
 
         ::slotted(a){
