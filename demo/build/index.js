@@ -173,7 +173,7 @@ ${"|*disabled*|"}
             box-sizing : border-box;
 
             font-weight : ${d};
-            color: var(--fontoColor,${c});
+            color: var(--fontColor,${c});
             line-height : 1.125;
             font-size : ${m}rem;
             word-break: break-word;
@@ -220,7 +220,7 @@ ${"|*disabled*|"}
         
         p {
             font-weight : ${400};
-            color: var(--fontoColor,${c});
+            color: var(--fontColor,${c});
             line-height : 1.25;
             font-size : ${m*x}rem;
             word-break: break-word;

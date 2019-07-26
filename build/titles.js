@@ -10,7 +10,7 @@ let mxn = html `
             box-sizing : border-box;
 
             font-weight : ${weight.semibold};
-            color: var(--fontoColor,${colors.grey_dark});
+            color: var(--fontColor,${colors.grey_dark});
             line-height : 1.125;
             font-size : ${txt_sizes.size_3}rem;
             word-break: break-word;
@@ -49,7 +49,7 @@ let mxn = html `
 `;
 /**
  * Title component.
- * @param --fontoColor : assign color
+ * @param --fontColor : assign color
  * @attribute bottom-margin: sets 1rem bottom margin
  * @attribute top-margin: sets 1rem top margin
  * @attribute inverted: inverts colors
@@ -73,7 +73,7 @@ let submxn = html `
         
         p {
             font-weight : ${weight.normal};
-            color: var(--fontoColor,${colors.grey_dark});
+            color: var(--fontColor,${colors.grey_dark});
             line-height : 1.25;
             font-size : ${txt_sizes.size_3 * txt_sizes.subtitle_factor}rem;
             word-break: break-word;
@@ -107,7 +107,7 @@ let submxn = html `
 `;
 /**
  * Subtitle component.
- * @param --fontoColor : assign color
+ * @param --fontColor : assign color
  * @attribute bottom-margin: sets 1.5rem bottom margin
  * @attribute zero-margin: sets margin to zero
  * @attribute large
