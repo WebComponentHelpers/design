@@ -166,7 +166,6 @@ ${"|*disabled*|"}
 `;let T=i`
     <style>
         :host {
-            contain: content; 
             display: block;
                 
             margin : 0;
@@ -174,7 +173,7 @@ ${"|*disabled*|"}
             box-sizing : border-box;
 
             font-weight : ${d};
-            color: ${c};
+            color: var(--fontoColor,${c});
             line-height : 1.125;
             font-size : ${m}rem;
             word-break: break-word;
@@ -213,7 +212,6 @@ ${"|*disabled*|"}
 `;let _=i`
     <style>
         :host {
-            contain: content; 
             display: block;
         }
         :host([bottom-margin]) > p {
@@ -222,7 +220,7 @@ ${"|*disabled*|"}
         
         p {
             font-weight : ${400};
-            color: ${c};
+            color: var(--fontoColor,${c});
             line-height : 1.25;
             font-size : ${m*x}rem;
             word-break: break-word;
@@ -390,7 +388,7 @@ ${"|*disabled*|"}
         <btn-x white focus ${"#-btn"}> <slot> I droppo  ;)</slot></btn-x>
         <menu-x ${"#-menu"}> <slot name="menu"> </slot> </menu-x>
     
-`;class I extends(P(HTMLElement)){constructor(){super(),this.ids.btn.onfocus=this.drop.bind(this),this.ids.btn.onblur=this.undrop.bind(this)}drop(){this.ids.menu.style.display="block"}undrop(){this.ids.menu.style.display="none"}}let R=i`
+`;class I extends(P(HTMLElement)){constructor(){super(),this.ids.btn.onfocus=this.drop.bind(this),this.ids.btn.onblur=this.undrop.bind(this)}drop(){this.ids.menu.style.display="block"}undrop(){this.ids.menu.style.display="none"}}let C=i`
     <style>
         menu-x{
             margin-top: 0px;
@@ -411,7 +409,7 @@ ${"|*disabled*|"}
         }
     </style>
 
-`;let S=i`
+`;let R=i`
     ${y}
     <style>
         :host{
@@ -460,7 +458,7 @@ ${"|*disabled*|"}
     <div ${"#-after"} after> <slot name="after"></slot> </div>
 
     ${"|*placeholder*|"}
-`;let C=i`
+`;let S=i`
     ${y}
     <style>
         :host{
@@ -532,4 +530,4 @@ ${"|*disabled*|"}
         <slot id="center" name="center"></slot>
     </span>
     <slot id="right" name="right"></slot>
-`;customElements.define("btn-x",L),l("delete-x",class extends L{constructor(){super(),this.ids.btn.innerHTML="x",this.swr.appendChild(M.content.cloneNode(!0))}}),l("title-x",class extends(T(HTMLElement)){}),l("subtitle-x",class extends(_(HTMLElement)){}),l("box-x",class extends(A(HTMLElement)){}),l("focus-box",class extends(H(HTMLElement,{shadowRoot:{mode:"open",delegatesFocus:!1}})){connectedCallback(){for(var e of(this.addEventListener("focus",this.foc),this.addEventListener("blur",this.blu),this.childNodes))e.addEventListener("focus",this.foc.bind(this)),e.addEventListener("blur",this.blu.bind(this))}foc(){this.setAttribute("focused","")}blu(){this.removeAttribute("focused")}}),l("message-x",class extends(j(HTMLElement)){}),l("menu-x",class extends(O(HTMLElement)){}),l("drop-x",I),l("smart-tag",class extends(R(I,{inherit:!0})){constructor(){super(),this.ids.btn.removeAttribute("white"),this.ids.btn.setAttribute("simple","")}}),l("input-x",class extends(S(HTMLElement)){constructor(){super(),this.ids.inpt.onfocus=this._focuseme.bind(this),this.ids.inpt.onblur=this._blurme.bind(this)}_focuseme(){this.setAttribute("focused","")}_blurme(){this.removeAttribute("focused"),this.validate&&this.validate()}get value(){return this.ids.inpt.value}set value(e){this.ids.inpt.value=e}update_placeholder(e){this.ids.inpt.placeholder=e}}),l("checkbox-x",class extends(C(HTMLElement)){get value(){return this.ids.inpt.checked}set value(e){this.ids.inpt.checked=e}}),l("nav-x",class extends(N(HTMLElement)){})}]);
+`;customElements.define("btn-x",L),l("delete-x",class extends L{constructor(){super(),this.ids.btn.innerHTML="x",this.swr.appendChild(M.content.cloneNode(!0))}}),l("title-x",class extends(T(HTMLElement)){}),l("subtitle-x",class extends(_(HTMLElement)){}),l("box-x",class extends(A(HTMLElement)){}),l("focus-box",class extends(H(HTMLElement,{shadowRoot:{mode:"open",delegatesFocus:!1}})){connectedCallback(){for(var e of(this.addEventListener("focus",this.foc),this.addEventListener("blur",this.blu),this.childNodes))e.addEventListener("focus",this.foc.bind(this)),e.addEventListener("blur",this.blu.bind(this))}foc(){this.setAttribute("focused","")}blu(){this.removeAttribute("focused")}}),l("message-x",class extends(j(HTMLElement)){}),l("menu-x",class extends(O(HTMLElement)){}),l("drop-x",I),l("smart-tag",class extends(C(I,{inherit:!0})){constructor(){super(),this.ids.btn.removeAttribute("white"),this.ids.btn.setAttribute("simple","")}}),l("input-x",class extends(R(HTMLElement)){constructor(){super(),this.ids.inpt.onfocus=this._focuseme.bind(this),this.ids.inpt.onblur=this._blurme.bind(this)}_focuseme(){this.setAttribute("focused","")}_blurme(){this.removeAttribute("focused"),this.validate&&this.validate()}get value(){return this.ids.inpt.value}set value(e){this.ids.inpt.value=e}update_placeholder(e){this.ids.inpt.placeholder=e}}),l("checkbox-x",class extends(S(HTMLElement)){get value(){return this.ids.inpt.checked}set value(e){this.ids.inpt.checked=e}}),l("nav-x",class extends(N(HTMLElement)){})}]);

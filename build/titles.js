@@ -3,7 +3,6 @@ import { weight, colors, txt_sizes, mixins } from "./css/configs.css";
 let mxn = html `
     <style>
         :host {
-            contain: content; 
             display: block;
                 
             margin : 0;
@@ -11,7 +10,7 @@ let mxn = html `
             box-sizing : border-box;
 
             font-weight : ${weight.semibold};
-            color: ${colors.grey_dark};
+            color: var(--fontoColor,${colors.grey_dark});
             line-height : 1.125;
             font-size : ${txt_sizes.size_3}rem;
             word-break: break-word;
@@ -48,6 +47,17 @@ let mxn = html `
         </style>
     <slot></slot>
 `;
+/**
+ * Title component.
+ * @param --fontoColor : assign color
+ * @attribute bottom-margin: sets 1rem bottom margin
+ * @attribute top-margin: sets 1rem top margin
+ * @attribute inverted: inverts colors
+ * @attribute large
+ * @attribute medium
+ * @attribute small
+ * @attribute smallest
+ */
 export class titleX extends mxn(HTMLElement) {
 }
 ;
@@ -55,7 +65,6 @@ export class titleX extends mxn(HTMLElement) {
 let submxn = html `
     <style>
         :host {
-            contain: content; 
             display: block;
         }
         :host([bottom-margin]) > p {
@@ -64,7 +73,7 @@ let submxn = html `
         
         p {
             font-weight : ${weight.normal};
-            color: ${colors.grey_dark};
+            color: var(--fontoColor,${colors.grey_dark});
             line-height : 1.25;
             font-size : ${txt_sizes.size_3 * txt_sizes.subtitle_factor}rem;
             word-break: break-word;
@@ -96,6 +105,16 @@ let submxn = html `
     </style>
     <p><slot></slot></p>
 `;
+/**
+ * Subtitle component.
+ * @param --fontoColor : assign color
+ * @attribute bottom-margin: sets 1.5rem bottom margin
+ * @attribute zero-margin: sets margin to zero
+ * @attribute large
+ * @attribute medium
+ * @attribute small
+ * @attribute smallest
+ */
 export class subtitleX extends submxn(HTMLElement) {
 }
 ;
