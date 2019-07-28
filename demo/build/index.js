@@ -26,7 +26,7 @@
         margin : 0;
         box-sizing : border-box;
 
-        background-color: ${p};
+        background-color: var(--bkg-color,${p});
         border-radius: ${v};
         box-shadow: 0 2px 3px rgba(0,0,0, 0.1), 0 0 0 1px rgba(0,0,0, 0.1);
         display: block;

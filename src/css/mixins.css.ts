@@ -41,13 +41,26 @@ export let box_skeleton = templateme`
         margin : 0;
         box-sizing : border-box;
 
-        background-color: ${conf.colors.white};
+        background-color: var(--bkg-color,${conf.colors.white});
         border-radius: ${conf.radius.large};
         box-shadow: 0 2px 3px rgba(0,0,0, 0.1), 0 0 0 1px rgba(0,0,0, 0.1);
         display: block;
         padding: var(--padding-box,1.25rem);
     }
     </style>
+`;
+/**
+ * to be used as string inside an element, not as template, use box_skeleton for that instead.
+ */
+export let box_skeleton_str = `
+        margin : 0;
+        box-sizing : border-box;
+
+        background-color: var(--bkg-color,${conf.colors.white});
+        border-radius: ${conf.radius.large};
+        box-shadow: 0 2px 3px rgba(0,0,0, 0.1), 0 0 0 1px rgba(0,0,0, 0.1);
+        display: block;
+        padding: var(--padding-box,1.25rem);
 `;
 
 export let focus_mxn = `
