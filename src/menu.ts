@@ -1,7 +1,8 @@
-import {brick as html, templateme, dfn} from "brick-element"
+import {brick as html, templateme, dfn, ifNdef} from "brick-element"
 import {normalize, shadow} from "./css/mixins.css"
 import {colors, radius} from "./css/configs.css"
 import "./button"
+import { buttonX } from "./button";
 
 
 let mxn = html` 
@@ -76,7 +77,7 @@ let drop_mxn = html`
         menu-x[hidden]{
             display : none;
         }
-        btn-x{
+        button-x{
             display:inline;
         }
         :host{
@@ -101,7 +102,7 @@ let drop_mxn = html`
 
     </style>
 
-        <btn-x white focus ${'#-btn'}> <slot> I droppo  ;)</slot></btn-x>
+        <button-x white focus ${'#-btn'}> <slot> I droppo  ;)</slot></button-x>
         <menu-x ${'#-menu'}> <slot name="menu"> </slot> </menu-x>
     
 `;
@@ -110,6 +111,8 @@ export class dropX extends drop_mxn(HTMLElement){
     ids:{[key:string]:any}
     constructor(){
         super();
+        ifNdef('button-x',buttonX);
+        ifNdef('menu-x',menuX);
         this.ids.btn.onfocus = this.drop.bind(this);
         this.ids.btn.onblur  = this.undrop.bind(this);
 
@@ -133,7 +136,7 @@ let mxn_tag = html`
             --border:0px;
             --border-radius:0px ${radius.medium} ${radius.medium} ${radius.medium} ; 
         }
-        btn-x {
+        button-x {
             --bg-color:${colors.blue};
             --radious: ${radius.medium} ${radius.medium} 0 0;
             --color: ${colors.grey_darker};

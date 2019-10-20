@@ -1,7 +1,7 @@
 import {dfn} from 'brick-element'
 
 import * as b from '../build/button'
-customElements.define("btn-x", b.buttonX);
+customElements.define("button-x", b.buttonX);
 dfn("delete-x", b.deleteX);
 
 import * as t from '../build/titles'

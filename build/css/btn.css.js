@@ -25,6 +25,8 @@ button {
   cursor: pointer;
   box-shadow:  var(--unfocused-box-shadow,none);
 
+  width: var(--width,fit-content);
+  
   -moz-appearance: none;
   -webkit-appearance: none;
 }
@@ -44,21 +46,20 @@ button {
 }
 
 :host([white]) > button{
-  background-color: ${conf.colors.white};
+  background-color: var(--override-white, ${conf.colors.white});
   color: ${conf.colors.grey_dark};
   border-color: ${conf.colors.grey_lighter};
   outline: 0;
 }
 :host(:not([simple])[white]:hover) > button {
+  background-color: var(--override-white, ${conf.colors.white});
   border-color: ${conf.colors.grey_dark};
-  background-color: ${conf.colors.white};
   color: ${conf.colors.grey_dark};
 }
 :host(:not([simple])[white]:active) > button {
+  background-color: var(--override-white, ${conf.colors.white});
   color: ${conf.colors.grey_darker};
-  background-color: ${conf.colors.white};
   border-color: ${conf.colors.grey_dark};
-
 }
 
 :host([focus]) > button:focus {

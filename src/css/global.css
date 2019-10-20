@@ -12,7 +12,7 @@
     transition: opacity 0.3s ease-in-out;
 } 
 
-btn-x:not(:defined) {
+button-x:not(:defined) {
     display: block;
     height: 3.8rem;
     opacity: 0;

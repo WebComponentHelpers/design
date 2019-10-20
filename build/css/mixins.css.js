@@ -67,7 +67,7 @@ export let focus_mxn = `
 export let shadow = {
     heavy: "0 2px 3px black",
     medium: "0 2px 3px rgba(0,0,0, 0.3)",
-    light: "0 2px 3px rgba(0,0,0, 0.1), 0 0 0 1px rgba(0,0,0, 0.1)"
+    light: "0 2px 3px rgba(0,0,0, 0.1), 0 0 0 1px rgba(0,0,0, 0.1)",
 };
 export let light_box = `
     border-width:1px;
