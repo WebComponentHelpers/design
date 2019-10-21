@@ -3,7 +3,6 @@
         :host{
             /*contain: content;*/
             box-sizing : border-box;
-            display: inline;
         }
         p,div{
             box-sizing : border-box;
@@ -39,12 +38,13 @@ ${[n`
     :host{
         /*contain: content; */
         box-sizing : border-box;
-        display: inline;
     }
     </style>
 `,n` 
 <style>
-  
+:host{
+  display:inline-block;
+}
 button {
   margin : 0;
   box-sizing : border-box;
@@ -66,7 +66,9 @@ button {
   cursor: pointer;
   box-shadow:  var(--unfocused-box-shadow,none);
 
-  width: var(--width,fit-content);
+  width:  inherit; /*var(--width,inherit);*/
+  height: inherit;
+
   
   -moz-appearance: none;
   -webkit-appearance: none;
@@ -308,7 +310,8 @@ ${"|*disabled*|"}
     
     <style>
         :host{
-            display:block;
+            display:flex;
+            flex-direction: column;
             background-color: var(--bg-color,${b});
             border: var(--border,1px solid);
             border-color: var(--border-color, ${p});
@@ -357,16 +360,20 @@ ${"|*disabled*|"}
             position: absolute;
             left:4px;
             z-index: 20;
+            min-width: var(--menu-min-width,10rem);
         }
         menu-x[hidden]{
             display : none;
         }
         button-x{
-            display:inline;
+            width:inherit;
+            height:inherit;
+            --padding:var(--btn-padding,0.8rem);
         }
         :host{
             position: relative;
             outline:none;
+            display:inline-block;
         }
         :host(:focus) {
             outline:none;
@@ -376,7 +383,7 @@ ${"|*disabled*|"}
         }
         @media only screen and (max-width: 500px) {
             menu-x{
-                width: 100%;
+                width: var(--phone-width,100%);
                 left:0%;
             }
             :host{

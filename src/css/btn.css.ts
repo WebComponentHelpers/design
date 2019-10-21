@@ -4,7 +4,9 @@ import {focus_mxn} from "./mixins.css"
 
 export let btn_css = html` 
 <style>
-  
+:host{
+  display:inline-block;
+}
 button {
   margin : 0;
   box-sizing : border-box;
@@ -26,7 +28,9 @@ button {
   cursor: pointer;
   box-shadow:  var(--unfocused-box-shadow,none);
 
-  width: var(--width,fit-content);
+  width:  inherit; /*var(--width,inherit);*/
+  height: inherit;
+
   
   -moz-appearance: none;
   -webkit-appearance: none;

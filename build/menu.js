@@ -8,7 +8,8 @@ let mxn = html `
     
     <style>
         :host{
-            display:block;
+            display:flex;
+            flex-direction: column;
             background-color: var(--bg-color,${colors.white});
             border: var(--border,1px solid);
             border-color: var(--border-color, ${colors.grey_lighter});
@@ -60,16 +61,20 @@ let drop_mxn = html `
             position: absolute;
             left:4px;
             z-index: 20;
+            min-width: var(--menu-min-width,10rem);
         }
         menu-x[hidden]{
             display : none;
         }
         button-x{
-            display:inline;
+            width:inherit;
+            height:inherit;
+            --padding:var(--btn-padding,0.8rem);
         }
         :host{
             position: relative;
             outline:none;
+            display:inline-block;
         }
         :host(:focus) {
             outline:none;
@@ -79,7 +84,7 @@ let drop_mxn = html `
         }
         @media only screen and (max-width: 500px) {
             menu-x{
-                width: 100%;
+                width: var(--phone-width,100%);
                 left:0%;
             }
             :host{
@@ -93,6 +98,12 @@ let drop_mxn = html `
         <menu-x ${'#-menu'}> <slot name="menu"> </slot> </menu-x>
     
 `;
+/**
+ * Drop box
+ * @param "--menu-min-width" default 10rem
+ * @param "--btn-padding" default 0.8rem
+ * @param "--phone-width" width for small screen size, default 100%
+ */
 export class dropX extends drop_mxn(HTMLElement) {
     constructor() {
         super();

@@ -5,7 +5,6 @@ export let host = templateme `
     :host{
         /*contain: content; */
         box-sizing : border-box;
-        display: inline;
     }
     </style>
 `;
@@ -14,7 +13,6 @@ export let normalize = templateme `
         :host{
             /*contain: content;*/
             box-sizing : border-box;
-            display: inline;
         }
         p,div{
             box-sizing : border-box;
