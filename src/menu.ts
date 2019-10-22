@@ -107,7 +107,7 @@ let drop_mxn = html`
 
     </style>
 
-        <button-x white focus ${'#-btn'}> <slot> I droppo  ;)</slot></button-x>
+        <button-x white focus ${'#-btn'}> <slot > I droppo  ;)</slot></button-x>
         <menu-x ${'#-menu'}> <slot name="menu"> </slot> </menu-x>
     
 `;
@@ -117,7 +117,7 @@ let drop_mxn = html`
  * @param "--btn-padding" default 0.8rem
  * @param "--phone-width" width for small screen size, default 100%
  */
-export class dropX extends drop_mxn(HTMLElement){
+export class dropX extends drop_mxn(HTMLElement,{shadowRoot:{delegatesFocus:true,mode:"open"}}){
     ids:{[key:string]:any}
     constructor(){
         super();

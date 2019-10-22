@@ -257,7 +257,7 @@ ${"|*disabled*|"}
 `;class P extends(O(HTMLElement)){}let j=i`
     ${k}
     <slot></slot>
-`;class I extends(j(HTMLElement)){}let S=i`
+`;class I extends(j(HTMLElement)){}let R=i`
     ${k}
     <style>
         :host{
@@ -284,7 +284,7 @@ ${"|*disabled*|"}
         <delete-x></delete-x>
     </div>
     <p> <slot name="content"> </slot> </p>
-`;class H extends(S(HTMLElement)){}let R=i`
+`;class S extends(R(HTMLElement)){}let H=i`
     ${w}
     <style>
         :host{
@@ -305,7 +305,7 @@ ${"|*disabled*|"}
       
     </style>
     <slot></slot>
-`;class C extends(R(HTMLElement,{shadowRoot:{mode:"open",delegatesFocus:!1}})){connectedCallback(){for(var e of(this.addEventListener("focus",this.foc),this.addEventListener("blur",this.blu),this.childNodes))e.addEventListener("focus",this.foc.bind(this)),e.addEventListener("blur",this.blu.bind(this))}foc(){this.setAttribute("focused","")}blu(){this.removeAttribute("focused")}}let D=i` 
+`;class C extends(H(HTMLElement,{shadowRoot:{mode:"open",delegatesFocus:!1}})){connectedCallback(){for(var e of(this.addEventListener("focus",this.foc),this.addEventListener("blur",this.blu),this.childNodes))e.addEventListener("focus",this.foc.bind(this)),e.addEventListener("blur",this.blu.bind(this))}foc(){this.setAttribute("focused","")}blu(){this.removeAttribute("focused")}}let D=i` 
     ${w}
     
     <style>
@@ -393,10 +393,10 @@ ${"|*disabled*|"}
 
     </style>
 
-        <button-x white focus ${"#-btn"}> <slot> I droppo  ;)</slot></button-x>
+        <button-x white focus ${"#-btn"}> <slot > I droppo  ;)</slot></button-x>
         <menu-x ${"#-menu"}> <slot name="menu"> </slot> </menu-x>
     
-`;class F extends(q(HTMLElement)){constructor(){super(),d("button-x",A),d("menu-x",N),this.ids.btn.onfocus=this.drop.bind(this),this.ids.btn.onblur=this.undrop.bind(this)}drop(){this.ids.menu.style.display="block"}undrop(){this.ids.menu.style.display="none"}}let B=i`
+`;class F extends(q(HTMLElement,{shadowRoot:{delegatesFocus:!0,mode:"open"}})){constructor(){super(),d("button-x",A),d("menu-x",N),this.ids.btn.onfocus=this.drop.bind(this),this.ids.btn.onblur=this.undrop.bind(this)}drop(){this.ids.menu.style.display="block"}undrop(){this.ids.menu.style.display="none"}}let B=i`
     <style>
         menu-x{
             margin-top: 0px;
@@ -538,4 +538,4 @@ ${"|*disabled*|"}
         <slot id="center" name="center"></slot>
     </span>
     <slot id="right" name="right"></slot>
-`;class W extends(V(HTMLElement)){}customElements.define("button-x",A),l("delete-x",class extends A{constructor(){super(),this.ids.btn.innerHTML="x",this.swr.appendChild(T.content.cloneNode(!0))}}),l("title-x",M),l("subtitle-x",P),l("box-x",I),l("focus-box",C),l("message-x",H),l("menu-x",N),l("drop-x",F),l("smart-tag",G),l("input-x",K),l("checkbox-x",U),l("nav-x",W)}]);
+`;class W extends(V(HTMLElement)){}customElements.define("button-x",A),l("delete-x",class extends A{constructor(){super(),this.ids.btn.innerHTML="x",this.swr.appendChild(T.content.cloneNode(!0))}}),l("title-x",M),l("subtitle-x",P),l("box-x",I),l("focus-box",C),l("message-x",S),l("menu-x",N),l("drop-x",F),l("smart-tag",G),l("input-x",K),l("checkbox-x",U),l("nav-x",W)}]);
