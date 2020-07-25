@@ -22,7 +22,7 @@ let mxn = html`
             background-color:${colors.white};
             border-radius:var(--radius,${radius.large});
             /*height:2.25em;*/
-            padding:0.5em;
+            padding:var(--padding, 0.5rem);
             border-style:none;
             font-family: inherit; /* 1 */
             font-size: 100%; /* 1 */
