@@ -84,7 +84,6 @@ export class inputX extends mxn(HTMLElement){
         this.override_onkeypress(ev);
         if(ev.keyCode === 13){
             this.override_on_enter();
-            console.log("pressing enter");
         }
     }
     override_onkeypress(ev:KeyboardEvent){

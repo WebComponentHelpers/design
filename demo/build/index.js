@@ -466,7 +466,7 @@ ${"|*disabled*|"}
     <div ${"#-after"} after> <slot name="after"></slot> </div>
 
     ${"|*placeholder*|"}
-`;class K extends(J(HTMLElement)){constructor(){super(),this.ids.inpt.onfocus=this._focuseme.bind(this),this.ids.inpt.onblur=this._blurme.bind(this),this.ids.inpt.onkeypress=this._onkeypress.bind(this)}_focuseme(){this.setAttribute("focused","")}_blurme(){this.removeAttribute("focused"),this.validate&&this.validate()}_onkeypress(e){this.override_onkeypress(e),13===e.keyCode&&(this.override_on_enter(),console.log("pressing enter"))}override_onkeypress(e){}override_on_enter(){}get value(){return this.ids.inpt.value}set value(e){this.ids.inpt.value=e}update_placeholder(e){this.ids.inpt.placeholder=e}}let Q=i`
+`;class K extends(J(HTMLElement)){constructor(){super(),this.ids.inpt.onfocus=this._focuseme.bind(this),this.ids.inpt.onblur=this._blurme.bind(this),this.ids.inpt.onkeypress=this._onkeypress.bind(this)}_focuseme(){this.setAttribute("focused","")}_blurme(){this.removeAttribute("focused"),this.validate&&this.validate()}_onkeypress(e){this.override_onkeypress(e),13===e.keyCode&&this.override_on_enter()}override_onkeypress(e){}override_on_enter(){}get value(){return this.ids.inpt.value}set value(e){this.ids.inpt.value=e}update_placeholder(e){this.ids.inpt.placeholder=e}}let Q=i`
     ${w}
     <style>
         :host{
