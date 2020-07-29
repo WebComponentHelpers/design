@@ -62,6 +62,7 @@ export class inputX extends mxn(HTMLElement) {
         super();
         this.ids.inpt.onfocus = this._focuseme.bind(this);
         this.ids.inpt.onblur = this._blurme.bind(this);
+        this.ids.inpt.onkeypress = this._onkeypress.bind(this);
     }
     _focuseme() {
         this.setAttribute("focused", "");
@@ -70,6 +71,17 @@ export class inputX extends mxn(HTMLElement) {
         this.removeAttribute("focused");
         if (this.validate)
             this.validate();
+    }
+    _onkeypress(ev) {
+        this.override_onkeypress(ev);
+        if (ev.keyCode === 13) {
+            this.override_on_enter();
+            console.log("pressing enter");
+        }
+    }
+    override_onkeypress(ev) {
+    }
+    override_on_enter() {
     }
     get value() {
         // FIXME add escaping 

@@ -69,6 +69,7 @@ export class inputX extends mxn(HTMLElement){
         super();
         this.ids.inpt.onfocus =  this._focuseme.bind(this);
         this.ids.inpt.onblur = this._blurme.bind(this);
+        this.ids.inpt.onkeypress = this._onkeypress.bind(this);
     }
     
     _focuseme(){
@@ -79,6 +80,19 @@ export class inputX extends mxn(HTMLElement){
         if(this.validate) this.validate();
     }
 
+    _onkeypress(ev:KeyboardEvent){
+        this.override_onkeypress(ev);
+        if(ev.keyCode === 13){
+            this.override_on_enter();
+            console.log("pressing enter");
+        }
+    }
+    override_onkeypress(ev:KeyboardEvent){
+
+    }
+    override_on_enter(){
+
+    }
     get value():string{
 
             // FIXME add escaping 
