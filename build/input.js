@@ -63,6 +63,12 @@ export class inputX extends mxn(HTMLElement) {
         this.ids.inpt.onfocus = this._focuseme.bind(this);
         this.ids.inpt.onblur = this._blurme.bind(this);
         this.ids.inpt.onkeypress = this._onkeypress.bind(this);
+        this.ids.inpt.addEventListener('change', this._change_event.bind(this));
+    }
+    _change_event(ev) {
+        // dispatch again this time bubbling trough shadow
+        let e = new Event("change", { bubbles: true, composed: true });
+        this.dispatchEvent(e);
     }
     _focuseme() {
         this.setAttribute("focused", "");
@@ -72,15 +78,14 @@ export class inputX extends mxn(HTMLElement) {
         if (this.validate)
             this.validate();
     }
+    focus() {
+        this.ids.inpt.focus();
+    }
     _onkeypress(ev) {
-        this.override_onkeypress(ev);
         if (ev.keyCode === 13) {
-            this.override_on_enter();
+            let e = new Event("enter-pressed", { bubbles: true, composed: true });
+            this.dispatchEvent(e);
         }
-    }
-    override_onkeypress(ev) {
-    }
-    override_on_enter() {
     }
     get value() {
         // FIXME add escaping 
